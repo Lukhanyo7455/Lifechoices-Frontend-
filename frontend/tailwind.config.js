@@ -10,8 +10,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        display: ['Fraunces', 'Georgia', 'serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif']
+        display: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -25,8 +25,8 @@ module.exports = {
           paper: '#FBFAF6',
           paper2: '#F1EEE5',
           sand: '#E7E2D5',
-          yellow: '#FFC629',
-          yellowDeep: '#E8A800',
+          yellow: '#9BBE3B',
+          yellowDeep: '#6E9327',
           green: '#3E9B57',
           crimson: '#CE2C5A',
           teal: '#159AA8',

@@ -7,7 +7,7 @@ import Button from "../common/Button";
 export default function Impact() {
   return (
     <section className="relative overflow-hidden bg-lc-ink text-lc-paper py-24 md:py-32">
-      <div className="pointer-events-none absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "radial-gradient(circle at 20% 20%, #FFC629 0, transparent 45%)" }} />
+      <div className="pointer-events-none absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "radial-gradient(circle at 20% 20%, #9BBE3B 0, transparent 45%)" }} />
       <div className="container-lc relative grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
         <div className="lg:col-span-5">
           <Reveal>

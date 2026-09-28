@@ -22,7 +22,7 @@ function Logo({ light }) {
     <Link to="/" className="flex items-center gap-2 shrink-0" aria-label="Life Choices home">
       <span className="inline-block h-7 w-2 rounded-sm bg-lc-yellow" />
       <span className="leading-none">
-        <span className={`display text-2xl italic font-semibold ${light ? "text-white" : "text-lc-ink"}`}>life</span>
+        <span className="display text-2xl italic font-bold text-lc-yellow">life</span>
         <span className={`display text-2xl font-semibold ${light ? "text-white" : "text-lc-ink"}`}>choices</span>
       </span>
     </Link>

@@ -29,7 +29,7 @@ export default function Footer() {
           <div className="flex items-center gap-2">
             <span className="inline-block h-7 w-2 rounded-sm bg-lc-yellow" />
             <span className="leading-none">
-              <span className="display text-2xl italic font-semibold text-white">life</span>
+              <span className="display text-2xl italic font-bold text-lc-yellow">life</span>
               <span className="display text-2xl font-semibold text-white">choices</span>
             </span>
           </div>
