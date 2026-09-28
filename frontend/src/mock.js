@@ -1,0 +1,291 @@
+// Life Choices redesign prototype — all content is MOCK/reference data.
+// Sourced/adapted from the public lifechoices.co.za site for demonstration only.
+// Placeholder copy is clearly marked where exact content was unavailable.
+
+export const org = {
+  name: "Life Choices",
+  established: 2005,
+  location: "Lansdowne, Cape Town",
+  address: "314 Imam Haron Road, Lansdowne, Cape Town, South Africa",
+  email: "info@lifechoices.co.za",
+  phone: "+27 21 761 4640",
+  tagline: "Youth is 37% of South Africa \u2014 but 100% of its future",
+  intro:
+    "Life Choices is an innovative and impactful youth development organisation based in Cape Town. We work in schools, communities and from our Campus in Lansdowne, investing in young people so they can reach their potential.",
+  visionLead: "Life Choices is working towards a world where\u2026",
+  vision:
+    "Every young person feels safe and valued. Every young person is free to thrive.",
+  visionSupport:
+    "We\u2019re doing this through programmes that ignite the potential of young people by healing, uplifting and empowering lives."
+};
+
+export const heroStats = [
+  { value: 200000, suffix: "+", label: "Lives impacted since 2005" },
+  { value: 20, suffix: "+", label: "Years working on the Cape Flats" },
+  { value: 10, suffix: "", label: "Partner high schools" },
+  { value: 4, suffix: "", label: "Core interventions" }
+];
+
+export const buildingBlocks = [
+  {
+    key: "family",
+    title: "Family Stability",
+    color: "#3E9B57",
+    icon: "Home",
+    text: "Nurturing home environments where young people feel safe, supported and able to grow."
+  },
+  {
+    key: "health",
+    title: "Health & Wellbeing",
+    color: "#CE2C5A",
+    icon: "HeartPulse",
+    text: "Access to youth-friendly health information, counselling and mental wellbeing support."
+  },
+  {
+    key: "leadership",
+    title: "Leadership & Life Skills",
+    color: "#E8A800",
+    icon: "Compass",
+    text: "Personal leadership, self-awareness and the life skills to take responsibility and dream big."
+  },
+  {
+    key: "education",
+    title: "Education & Skills",
+    color: "#159AA8",
+    icon: "GraduationCap",
+    text: "Learning support and skills development that open doors to further study and opportunity."
+  },
+  {
+    key: "employment",
+    title: "Employment & Work-readiness",
+    color: "#2E62D8",
+    icon: "Briefcase",
+    text: "Preparing young people for the world of work with market-relevant, practical skills."
+  }
+];
+
+export const programmes = [
+  {
+    slug: "family-affairs",
+    name: "Family Affairs",
+    color: "#3E9B57",
+    block: "Family Stability",
+    icon: "Home",
+    tag: "Parents & caregivers",
+    heroLine:
+      "Every young person deserves a safe, nurturing home environment in which to grow.",
+    summary:
+      "Positive parenting workshops, one-on-one counselling and ongoing support circles that help families thrive.",
+    image:
+      "https://images.unsplash.com/photo-1632215861513-130b66fe97f4?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400",
+    why:
+      "Homes are the centre of our communities. Yet often parents themselves feel overwhelmed, and unable to create nurturing spaces, given the stresses within their community and environment. Family Affairs works with local CBOs and NPOs to offer positive parenting workshops, one-on-one counselling and ongoing support circles, so that parents \u2014 and their loved ones \u2014 can thrive.",
+    endorsement:
+      "The programme is endorsed by the Department of Social Development and the workshops are DSD-approved as part of their family-strengthening initiative.",
+    what: [
+      "Life Choices runs a series of seven workshops with parents and caregivers. Topics include personal development, self-reflection and mindfulness, understanding child behaviour and stages of development, parenting styles, building a child\u2019s self-esteem, communication patterns and active listening, and identifying and managing feelings.",
+      "Parents are encouraged to form support groups so they can continue to learn and grow together. They also have access to a registered social worker for one-on-one counselling, with linkages to further support such as social grants, trauma counselling and legal advice."
+    ],
+    stats: [
+      { value: 7, suffix: "", label: "Structured parenting workshops" },
+      { value: 1, suffix: "-on-1", label: "Registered social worker support" },
+      { value: 100, suffix: "%", label: "DSD-approved curriculum" }
+    ]
+  },
+  {
+    slug: "health4life",
+    name: "Health4Life",
+    color: "#CE2C5A",
+    block: "Health & Wellbeing",
+    icon: "HeartPulse",
+    tag: "Learners in schools",
+    heroLine:
+      "Every young person deserves great health care and information, and to feel mentally strong.",
+    summary:
+      "Health information, counselling and psychosocial support delivered in partnership with schools and communities.",
+    image:
+      "https://images.unsplash.com/photo-1781117244798-d3c52daa57dc?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400",
+    why:
+      "In adolescence, young people begin making their own choices about how they live. Nearly two-thirds of premature deaths and a third of the disease burden in adults are linked to conditions or behaviours that began in youth. Half of all mental health disorders in adulthood start by the age of 14 \u2014 yet most cases go undetected and untreated. In our unequal society, those closer to the base of the pyramid have the least access to quality youth-friendly health services.",
+    endorsement: "",
+    what: [
+      "Life Choices fills this gap by partnering with schools and communities to provide information, counselling and support. In our partner schools we provide HIV counselling and testing, including screening for TB, STIs and lifestyle risks, so each learner can develop a personalised risk-reduction plan.",
+      "Our staff deliver sexual and reproductive health talks as part of the Life Orientation curriculum, run campaigns on topics such as bereavement, anxiety and suicide awareness, and our Wellness team provides one-on-one and group psychosocial support to learners and staff."
+    ],
+    stats: [
+      { value: 8, suffix: " & 9", label: "Grades reached with SRH talks" },
+      { value: 100, suffix: "%", label: "Personalised risk-reduction plans" },
+      { value: 1, suffix: "-on-1", label: "Psychosocial counselling" }
+    ]
+  },
+  {
+    slug: "leaders-quest",
+    name: "Leaders\u2019 Quest",
+    color: "#E8A800",
+    block: "Leadership & Life Skills",
+    icon: "Compass",
+    tag: "High school learners",
+    heroLine:
+      "Every young person deserves to fulfil their potential in the world.",
+    summary:
+      "After-school leadership and life-skills training, coaching and experiential learning across Cape Town high schools.",
+    image:
+      "https://images.unsplash.com/photo-1632215863153-0dae7657d0a9?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400",
+    why:
+      "South Africa is crying out for better leadership \u2014 in government, in companies, in communities and in homes. Leaders\u2019 Quest aims to grow a new generation of leaders who are attuned to themselves and cognisant of the problems of the world. The focus is on personal leadership, taking responsibility for one\u2019s life and decisions, and dreaming big and planning strong, so that young people are free to thrive.",
+    endorsement: "",
+    what: [
+      "Leaders\u2019 Quest provides aspirant high school learners with personal development tools and life skills so they are ready for the future. Operating in 10 high schools in Cape Town, the programme offers after-school leadership training, one-on-one coaching and psychosocial support.",
+      "A range of experiential activities help learners flex their leadership muscles and grow into the people they are meant to be. Coaches build close, nurturing relationships, and the groups become supportive environments for personal growth, social awareness and servant-leadership."
+    ],
+    stats: [
+      { value: 10, suffix: "", label: "High schools reached" },
+      { value: 272, suffix: "", label: "Grade 11 & 12 learners enrolled" },
+      { value: 158, suffix: "", label: "One-on-one coaching sessions" }
+    ]
+  },
+  {
+    slug: "life-choices-academy",
+    name: "Life Choices Academy",
+    color: "#2E62D8",
+    block: "Employment & Work-readiness",
+    icon: "Briefcase",
+    tag: "Young adults",
+    heroLine:
+      "Every young person deserves a real pathway into meaningful work.",
+    summary:
+      "Skills development and work-readiness training that helps young people transition into employment and opportunity.",
+    image:
+      "https://images.unsplash.com/photo-1627423896085-e3e694d88e40?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400",
+    why:
+      "Youth unemployment is one of South Africa\u2019s most urgent challenges. Life Choices Academy helps young people bridge the gap between school and the world of work by building market-relevant skills, confidence and professional habits. [Placeholder copy \u2014 adapted from the public Life Choices Academy overview for this prototype.]",
+    endorsement: "",
+    what: [
+      "The Academy equips young adults with practical, in-demand skills and work-readiness training \u2014 from digital and communication skills to professional conduct and interview preparation. [Placeholder copy for prototype.]",
+      "Through partnerships with employers and further learning pathways, participants are supported to move into internships, further study or employment. [Placeholder copy for prototype.]"
+    ],
+    stats: [
+      { value: 1000, suffix: "+", label: "Young people supported" },
+      { value: 12, suffix: "", label: "Month learning journey" },
+      { value: 100, suffix: "%", label: "Work-readiness focused" }
+    ]
+  }
+];
+
+export const impactStats = [
+  { value: 200000, suffix: "+", label: "People reached since 2005" },
+  { value: 20, suffix: "+", label: "Years of continuous impact" },
+  { value: 10, suffix: "", label: "Partner high schools" },
+  { value: 4, suffix: "", label: "Interlocking interventions" }
+];
+
+export const stories = [
+  {
+    slug: "nurturing-the-leader-within",
+    title: "Nurturing the Leader Within",
+    programme: "Leaders\u2019 Quest",
+    excerpt:
+      "How one learner discovered the confidence to speak, lead and imagine a bigger future. [Placeholder excerpt for prototype.]",
+    image:
+      "https://images.unsplash.com/photo-1659093728055-45f8275166d9?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200",
+    date: "May 2025"
+  },
+  {
+    slug: "rebuilding-relationships",
+    title: "Rebuilding Relationships",
+    programme: "Family Affairs",
+    excerpt:
+      "A caregiver rebuilds trust at home after joining a positive parenting support circle. [Placeholder excerpt for prototype.]",
+    image:
+      "https://images.unsplash.com/photo-1543689604-6fe8dbcd1f59?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200",
+    date: "April 2025"
+  },
+  {
+    slug: "a-beacon-of-love",
+    title: "A Beacon of Love",
+    programme: "Family Affairs",
+    excerpt:
+      "Finding strength and community through counselling and connection. [Placeholder excerpt for prototype.]",
+    image:
+      "https://images.unsplash.com/photo-1764265148991-0335c05ca841?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200",
+    date: "March 2025"
+  },
+  {
+    slug: "taking-the-lead",
+    title: "Taking the Lead",
+    programme: "Leaders\u2019 Quest",
+    excerpt:
+      "From the back of the classroom to the front of the stage \u2014 a story of servant leadership. [Placeholder excerpt for prototype.]",
+    image:
+      "https://images.unsplash.com/photo-1617724757497-79b54c5444d2?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200",
+    date: "February 2025"
+  },
+  {
+    slug: "heart-work",
+    title: "Heart Work",
+    programme: "Health4Life",
+    excerpt:
+      "Meeting young people where they are with youth-friendly wellbeing support. [Placeholder excerpt for prototype.]",
+    image:
+      "https://images.unsplash.com/photo-1620464225966-8482645f2db1?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200",
+    date: "January 2025"
+  },
+  {
+    slug: "the-dream-team",
+    title: "The Dream Team",
+    programme: "Leaders\u2019 Quest",
+    excerpt:
+      "How a group of learners turned an idea into a community project. [Placeholder excerpt for prototype.]",
+    image:
+      "https://images.unsplash.com/photo-1782136660529-1f12b16e5d76?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200",
+    date: "December 2024"
+  }
+];
+
+export const team = [
+  { name: "Placeholder Name", role: "Chief Executive Officer", image: "https://images.unsplash.com/photo-1659093728055-45f8275166d9?crop=entropy&cs=srgb&fm=jpg&q=85&w=600" },
+  { name: "Placeholder Name", role: "Head of Programmes", image: "https://images.unsplash.com/photo-1764265148991-0335c05ca841?crop=entropy&cs=srgb&fm=jpg&q=85&w=600" },
+  { name: "Placeholder Name", role: "Wellness Lead", image: "https://images.unsplash.com/photo-1617724757497-79b54c5444d2?crop=entropy&cs=srgb&fm=jpg&q=85&w=600" },
+  { name: "Placeholder Name", role: "Partnerships Director", image: "https://images.unsplash.com/photo-1620464225966-8482645f2db1?crop=entropy&cs=srgb&fm=jpg&q=85&w=600" }
+];
+
+// Partner names below are placeholders for the prototype, except the DSD endorsement noted on Family Affairs.
+export const partners = [
+  "Department of Social Development",
+  "Community Partner",
+  "Corporate Supporter",
+  "Philanthropic Foundation",
+  "Education Partner",
+  "Health Partner"
+];
+
+export const nav = [
+  { label: "Home", to: "/" },
+  {
+    label: "About",
+    to: "/about",
+    type: "dropdown",
+    items: [
+      { label: "Who We Are", to: "/about", desc: "Our story, vision and the communities we serve" },
+      { label: "Our Approach", to: "/about#approach", desc: "The five building blocks that help youth thrive" },
+      { label: "Meet the Team", to: "/about#team", desc: "The people behind Life Choices" },
+      { label: "Reports & Impact", to: "/impact", desc: "Annual reports and measured outcomes" }
+    ]
+  },
+  {
+    label: "Our Work",
+    to: "/interventions",
+    type: "mega",
+    items: programmes.map((p) => ({
+      label: p.name,
+      to: `/interventions/${p.slug}`,
+      desc: p.summary,
+      color: p.color,
+      icon: p.icon,
+      block: p.block
+    }))
+  },
+  { label: "Impact", to: "/impact" },
+  { label: "Stories", to: "/stories" },
+  { label: "Contact", to: "/contact" }
+];
