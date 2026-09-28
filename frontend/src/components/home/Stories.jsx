@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Newspaper } from "lucide-react";
 import { stories } from "../../mock";
 import Reveal from "../common/Reveal";
+import Placeholder from "../common/Placeholder";
 
 export default function Stories() {
   const featured = stories.slice(0, 3);
@@ -31,23 +32,15 @@ export default function Stories() {
         <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-7">
           {featured.map((s, i) => (
             <Reveal key={s.slug} delay={i * 90}>
-              <Link to="/stories" className="group block">
-                <div className="overflow-hidden rounded-lg">
-                  <img
-                    src={s.image}
-                    alt={s.title}
-                    className="h-64 w-full object-cover transition-transform duration-[900ms] group-hover:scale-105"
-                  />
-                </div>
-                <div className="mt-5">
+              <Link to="/stories" className="card-3d group block overflow-hidden">
+                <Placeholder icon={Newspaper} label={`${s.programme} story`} className="h-56 w-full" rounded="rounded-none" />
+                <div className="p-6">
                   <div className="flex items-center gap-3 text-xs uppercase tracking-widest text-lc-muted">
                     <span className="font-semibold text-lc-yellowDeep">{s.programme}</span>
                     <span className="h-1 w-1 rounded-full bg-lc-muted" />
                     <span>{s.date}</span>
                   </div>
-                  <h3 className="display mt-2 text-2xl text-lc-ink leading-snug group-hover:text-lc-ink/80 transition-colors">
-                    {s.title}
-                  </h3>
+                  <h3 className="display mt-2 text-2xl text-lc-ink leading-snug">{s.title}</h3>
                   <p className="mt-2 text-[15px] leading-relaxed text-lc-muted">{s.excerpt}</p>
                 </div>
               </Link>

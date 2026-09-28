@@ -6,6 +6,7 @@ import Section from "../components/common/Section";
 import Reveal from "../components/common/Reveal";
 import Button from "../components/common/Button";
 import StatCounter from "../components/common/StatCounter";
+import Placeholder from "../components/common/Placeholder";
 import { programmes } from "../mock";
 
 export default function Programme() {
@@ -27,8 +28,9 @@ export default function Programme() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-lc-ink text-lc-paper pt-[74px]">
-        <div className="pointer-events-none absolute inset-0 opacity-[0.10]" style={{ backgroundImage: `radial-gradient(circle at 12% 20%, ${p.color} 0, transparent 45%)` }} />
+      <section className="relative overflow-hidden bg-lc-ink text-lc-paper pt-[104px]">
+        <div className="pointer-events-none absolute inset-0 bg-grid-dark opacity-50" />
+        <div className="pointer-events-none absolute inset-0 opacity-[0.12]" style={{ backgroundImage: `radial-gradient(circle at 12% 20%, ${p.color} 0, transparent 45%)` }} />
         <div className="container-lc relative grid grid-cols-1 lg:grid-cols-12 gap-12 py-16 md:py-24 items-center">
           <div className="lg:col-span-6">
             <Reveal>
@@ -37,7 +39,7 @@ export default function Programme() {
               </Link>
             </Reveal>
             <Reveal delay={80}>
-              <span className="mt-6 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold text-white" style={{ backgroundColor: `${p.color}E6` }}>
+              <span className="mt-6 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold text-white shadow-lg" style={{ backgroundColor: `${p.color}F2` }}>
                 <Icon className="h-3.5 w-3.5" />{p.block}
               </span>
             </Reveal>
@@ -55,8 +57,8 @@ export default function Programme() {
             </Reveal>
           </div>
           <div className="lg:col-span-6">
-            <Reveal delay={160} className="overflow-hidden rounded-lg shadow-2xl">
-              <img src={p.image} alt={p.name} className="h-[380px] md:h-[460px] w-full object-cover" />
+            <Reveal delay={160} className="group">
+              <Placeholder dark icon={Icon} accent={p.color} label={`${p.name} imagery`} className="h-[380px] md:h-[460px] w-full" rounded="rounded-2xl" />
             </Reveal>
           </div>
         </div>
@@ -70,7 +72,7 @@ export default function Programme() {
             <Reveal delay={80}><p className="text-lg text-lc-ink/75 leading-relaxed">{p.why}</p></Reveal>
             {p.endorsement && (
               <Reveal delay={140}>
-                <div className="mt-6 flex gap-3 rounded-lg border-l-4 bg-lc-paper2 p-5" style={{ borderColor: p.color }}>
+                <div className="card-3d mt-6 flex gap-3 border-l-4 p-5" style={{ borderLeftColor: p.color }}>
                   <Check className="h-5 w-5 shrink-0" style={{ color: p.color }} />
                   <p className="text-[15px] text-lc-ink/80">{p.endorsement}</p>
                 </div>
@@ -84,7 +86,7 @@ export default function Programme() {
             </div>
           </div>
           <div className="lg:col-span-5">
-            <Reveal className="sticky top-24 rounded-lg border border-lc-ink/10 bg-lc-paper2 p-8">
+            <Reveal className="card-3d sticky top-28 p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-lc-muted">By the numbers</p>
               <div className="mt-6 space-y-8">
                 {p.stats.map((s, i) => (
@@ -106,9 +108,9 @@ export default function Programme() {
             const OIcon = Icons[o.icon] || Icons.Circle;
             return (
               <Reveal key={o.slug} delay={i * 80}>
-                <Link to={`/interventions/${o.slug}`} className="group flex items-center justify-between rounded-lg border border-lc-ink/10 bg-lc-paper p-6 transition-all hover:-translate-y-1 hover:shadow-lg">
+                <Link to={`/interventions/${o.slug}`} className="card-3d group flex items-center justify-between p-6">
                   <div className="flex items-center gap-4">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-md" style={{ backgroundColor: `${o.color}18`, color: o.color }}><OIcon className="h-5 w-5" /></span>
+                    <span className="icon-tile flex h-11 w-11 items-center justify-center" style={{ backgroundColor: `${o.color}1F`, color: o.color }}><OIcon className="h-5 w-5" /></span>
                     <span className="display text-lg text-lc-ink">{o.name}</span>
                   </div>
                   <ArrowRight className="h-5 w-5 text-lc-muted transition-transform group-hover:translate-x-1" />

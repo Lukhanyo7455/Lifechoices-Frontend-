@@ -5,8 +5,9 @@ import Reveal from "../common/Reveal";
 
 export default function BuildingBlocks() {
   return (
-    <section className="bg-lc-paper2 py-24 md:py-32">
-      <div className="container-lc">
+    <section className="relative bg-lc-paper2 py-24 md:py-32">
+      <div className="pointer-events-none absolute inset-0 bg-grid opacity-50" />
+      <div className="container-lc relative">
         <div className="max-w-3xl">
           <Reveal>
             <p className="eyebrow mb-5"><span className="h-px w-8 bg-lc-yellowDeep" />Our Approach</p>
@@ -29,10 +30,10 @@ export default function BuildingBlocks() {
             const Icon = Icons[b.icon] || Icons.Circle;
             return (
               <Reveal key={b.key} delay={i * 70}>
-                <div className="group h-full bg-lc-paper rounded-lg border border-lc-ink/10 p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_rgba(20,24,31,0.10)]">
+                <div className="card-3d group h-full p-6">
                   <span
-                    className="flex h-12 w-12 items-center justify-center rounded-md transition-transform duration-300 group-hover:scale-110"
-                    style={{ backgroundColor: `${b.color}18`, color: b.color }}
+                    className="icon-tile flex h-12 w-12 items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                    style={{ backgroundColor: `${b.color}1F`, color: b.color }}
                   >
                     <Icon className="h-6 w-6" />
                   </span>

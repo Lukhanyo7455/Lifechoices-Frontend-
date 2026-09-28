@@ -1,9 +1,11 @@
 import React from "react";
 import * as Icons from "lucide-react";
+import { Users, User } from "lucide-react";
 import PageHero from "../components/common/PageHero";
 import Section from "../components/common/Section";
 import Reveal from "../components/common/Reveal";
 import Button from "../components/common/Button";
+import Placeholder from "../components/common/Placeholder";
 import { org, buildingBlocks, team } from "../mock";
 
 const values = [
@@ -26,15 +28,9 @@ export default function About() {
       <Section tone="paper">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-6">
-            <Reveal className="relative">
-              <div className="absolute -left-4 -top-4 hidden sm:block h-32 w-32 bg-lc-yellow rounded-sm" />
-              <div className="relative overflow-hidden rounded-lg shadow-[0_30px_60px_rgba(20,24,31,0.14)]">
-                <img
-                  src="https://images.unsplash.com/photo-1778067031440-a51350e96e05?crop=entropy&cs=srgb&fm=jpg&q=85&w=1300"
-                  alt="Young people gathered together"
-                  className="h-[440px] w-full object-cover"
-                />
-              </div>
+            <Reveal className="group relative">
+              <div className="absolute -left-4 -top-4 hidden sm:block h-32 w-32 bg-lc-yellow/90 rounded-2xl shadow-[0_20px_40px_rgba(155,190,59,0.25)]" />
+              <Placeholder label="Life Choices imagery" icon={Users} className="h-[440px] w-full" rounded="rounded-2xl" />
             </Reveal>
           </div>
           <div className="lg:col-span-6">
@@ -62,8 +58,9 @@ export default function About() {
       </Section>
 
       {/* Vision statement band */}
-      <Section tone="ink" size="lg">
-        <Reveal className="max-w-4xl mx-auto text-center">
+      <Section tone="ink" size="lg" className="relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-grid-dark opacity-50" />
+        <Reveal className="relative max-w-4xl mx-auto text-center">
           <p className="eyebrow-light justify-center mb-6">Our Vision</p>
           <p className="display text-3xl md:text-5xl leading-[1.15] text-white">
             “Every young person feels safe and valued. Every young person is free to thrive.”
@@ -86,8 +83,8 @@ export default function About() {
             const Icon = Icons[b.icon] || Icons.Circle;
             return (
               <Reveal key={b.key} delay={i * 70}>
-                <div className="h-full bg-lc-paper rounded-lg border border-lc-ink/10 p-6">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-md" style={{ backgroundColor: `${b.color}18`, color: b.color }}>
+                <div className="card-3d h-full p-6">
+                  <span className="icon-tile flex h-12 w-12 items-center justify-center" style={{ backgroundColor: `${b.color}1F`, color: b.color }}>
                     <Icon className="h-6 w-6" />
                   </span>
                   <h3 className="display mt-5 text-lg text-lc-ink leading-tight">{b.title}</h3>
@@ -111,8 +108,8 @@ export default function About() {
               const Icon = Icons[v.icon] || Icons.Circle;
               return (
                 <Reveal key={v.title} delay={i * 80}>
-                  <div className="flex gap-4">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-lc-ink text-lc-yellow"><Icon className="h-5 w-5" /></span>
+                  <div className="card-3d flex gap-4 p-6">
+                    <span className="icon-tile flex h-11 w-11 shrink-0 items-center justify-center bg-lc-ink text-lc-yellow"><Icon className="h-5 w-5" /></span>
                     <div>
                       <h3 className="display text-xl text-lc-ink">{v.title}</h3>
                       <p className="mt-1.5 text-[15px] text-lc-muted">{v.text}</p>
@@ -135,12 +132,12 @@ export default function About() {
         <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-6">
           {team.map((m, i) => (
             <Reveal key={i} delay={i * 80}>
-              <div className="group">
-                <div className="overflow-hidden rounded-lg">
-                  <img src={m.image} alt={m.role} className="h-72 w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" />
+              <div className="card-3d group overflow-hidden">
+                <Placeholder icon={User} label="Team portrait" className="h-64 w-full" rounded="rounded-none" />
+                <div className="p-5">
+                  <h3 className="display text-lg text-lc-ink">{m.name}</h3>
+                  <p className="text-sm text-lc-yellowDeep font-semibold">{m.role}</p>
                 </div>
-                <h3 className="display mt-4 text-xl text-lc-ink">{m.name}</h3>
-                <p className="text-sm text-lc-yellowDeep font-semibold">{m.role}</p>
               </div>
             </Reveal>
           ))}

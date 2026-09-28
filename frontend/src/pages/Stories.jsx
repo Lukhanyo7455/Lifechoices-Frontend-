@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Newspaper } from "lucide-react";
 import PageHero from "../components/common/PageHero";
 import Section from "../components/common/Section";
 import Reveal from "../components/common/Reveal";
+import Placeholder from "../components/common/Placeholder";
 import { stories, programmes } from "../mock";
 
 export default function Stories() {
@@ -27,7 +28,7 @@ export default function Stories() {
               key={f}
               onClick={() => setActive(f)}
               className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
-                active === f ? "bg-lc-ink text-lc-paper" : "border border-lc-ink/15 text-lc-ink/70 hover:border-lc-ink"
+                active === f ? "bg-lc-ink text-lc-paper shadow-lg" : "border border-lc-ink/15 text-lc-ink/70 hover:border-lc-ink"
               }`}
             >
               {f}
@@ -38,11 +39,9 @@ export default function Stories() {
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
           {list.map((s, i) => (
             <Reveal key={s.slug} delay={(i % 3) * 80}>
-              <Link to="/stories" onClick={(e) => e.preventDefault()} className="group block">
-                <div className="overflow-hidden rounded-lg">
-                  <img src={s.image} alt={s.title} className="h-64 w-full object-cover transition-transform duration-[900ms] group-hover:scale-105" />
-                </div>
-                <div className="mt-5">
+              <Link to="/stories" onClick={(e) => e.preventDefault()} className="card-3d group block overflow-hidden">
+                <Placeholder icon={Newspaper} label={`${s.programme} story`} className="h-60 w-full" rounded="rounded-none" />
+                <div className="p-6">
                   <div className="flex items-center gap-3 text-xs uppercase tracking-widest text-lc-muted">
                     <span className="font-semibold text-lc-yellowDeep">{s.programme}</span>
                     <span className="h-1 w-1 rounded-full bg-lc-muted" /><span>{s.date}</span>

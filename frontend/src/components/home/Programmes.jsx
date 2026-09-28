@@ -4,6 +4,7 @@ import * as Icons from "lucide-react";
 import { ArrowRight } from "lucide-react";
 import { programmes } from "../../mock";
 import Reveal from "../common/Reveal";
+import Placeholder from "../common/Placeholder";
 
 export default function Programmes() {
   return (
@@ -33,20 +34,12 @@ export default function Programmes() {
             const Icon = Icons[p.icon] || Icons.Circle;
             return (
               <Reveal key={p.slug} delay={(i % 2) * 90}>
-                <Link
-                  to={`/interventions/${p.slug}`}
-                  className="group block overflow-hidden rounded-lg border border-lc-ink/10 bg-lc-paper transition-all duration-300 hover:shadow-[0_30px_60px_rgba(20,24,31,0.12)]"
-                >
-                  <div className="relative h-60 overflow-hidden">
-                    <img
-                      src={p.image}
-                      alt={p.name}
-                      className="h-full w-full object-cover transition-transform duration-[900ms] group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-lc-ink/55 to-transparent" />
+                <Link to={`/interventions/${p.slug}`} className="card-3d group block overflow-hidden">
+                  <div className="relative">
+                    <Placeholder icon={Icon} label={`${p.block} imagery`} accent={p.color} className="h-60 w-full" rounded="rounded-none" />
                     <span
-                      className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-sm"
-                      style={{ backgroundColor: `${p.color}E6` }}
+                      className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold text-white shadow-lg"
+                      style={{ backgroundColor: `${p.color}F2` }}
                     >
                       <Icon className="h-3.5 w-3.5" />
                       {p.block}

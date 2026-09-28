@@ -1,14 +1,19 @@
 import React from "react";
+import { Layers } from "lucide-react";
 import { org, heroStats } from "../../mock";
 import Button from "../common/Button";
 import Reveal from "../common/Reveal";
+import Placeholder from "../common/Placeholder";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-lc-paper pt-[74px]">
-      {/* subtle texture accents */}
+    <section className="relative overflow-hidden bg-lc-paper pt-[104px]">
+      {/* Layered depth backgrounds */}
+      <div className="pointer-events-none absolute inset-0 bg-glow" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[560px] bg-grid opacity-70" />
       <div className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-lc-yellow/10 blur-3xl" />
-      <div className="container-lc relative grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 py-16 md:py-24 items-center">
+
+      <div className="container-lc relative grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 py-14 md:py-20 items-center">
         {/* Text column */}
         <div className="lg:col-span-6">
           <Reveal>
@@ -34,22 +39,17 @@ export default function Hero() {
           </Reveal>
         </div>
 
-        {/* Image column */}
+        {/* Image placeholder column */}
         <div className="lg:col-span-6">
-          <Reveal delay={120} className="relative">
-            <div className="absolute -left-5 -top-5 hidden sm:block h-40 w-40 bg-lc-yellow rounded-sm" />
-            <div className="absolute -right-4 -bottom-4 hidden sm:block h-28 w-28 border-2 border-lc-ink/15 rounded-sm" />
-            <div className="relative overflow-hidden rounded-lg shadow-[0_40px_80px_rgba(20,24,31,0.18)]">
-              <img
-                src="https://images.unsplash.com/photo-1584365098838-50ccef838f4a?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400"
-                alt="Young people from a Life Choices programme in Cape Town"
-                className="h-[420px] md:h-[520px] w-full object-cover kenburns"
-              />
-              <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg" />
+          <Reveal delay={120} className="group relative">
+            <div className="absolute -left-5 -top-5 hidden sm:block h-40 w-40 bg-lc-yellow/90 rounded-2xl shadow-[0_20px_40px_rgba(155,190,59,0.25)]" />
+            <div className="absolute -right-4 -bottom-4 hidden sm:block h-28 w-28 border border-lc-ink/15 rounded-2xl" />
+            <div className="relative rounded-2xl shadow-[0_40px_80px_rgba(20,24,31,0.16)]">
+              <Placeholder label="Life Choices imagery" icon={Layers} className="h-[420px] md:h-[520px] w-full" rounded="rounded-2xl" />
             </div>
             {/* Floating stat card */}
-            <div className="absolute -bottom-7 left-6 sm:left-10 bg-lc-ink text-lc-paper rounded-lg px-6 py-5 shadow-xl">
-              <div className="display text-3xl font-semibold">200,000<span className="text-lc-yellow">+</span></div>
+            <div className="card-3d-dark absolute -bottom-7 left-6 sm:left-10 px-6 py-5">
+              <div className="display text-3xl font-semibold text-white">200,000<span className="text-lc-yellow">+</span></div>
               <div className="text-xs uppercase tracking-widest text-white/60 mt-1">Lives impacted</div>
             </div>
           </Reveal>
@@ -57,7 +57,7 @@ export default function Hero() {
       </div>
 
       {/* Stat strip */}
-      <div className="border-t border-lc-ink/10 bg-lc-paper2">
+      <div className="relative border-t border-lc-ink/10 bg-lc-paper2">
         <div className="container-lc grid grid-cols-2 md:grid-cols-4 divide-x divide-lc-ink/10">
           {heroStats.map((s, i) => (
             <Reveal key={i} delay={i * 70} className="px-5 py-7 md:py-9">

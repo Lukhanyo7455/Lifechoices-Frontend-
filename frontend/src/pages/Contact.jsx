@@ -44,7 +44,7 @@ export default function Contact() {
           {/* Form */}
           <div className="lg:col-span-7">
             <Reveal>
-              <form onSubmit={submit} className="rounded-lg border border-lc-ink/10 bg-lc-paper2 p-7 md:p-9">
+              <form onSubmit={submit} className="card-3d p-7 md:p-9">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-sm font-semibold text-lc-ink mb-2">Full name</label>
@@ -83,7 +83,7 @@ export default function Contact() {
                 return (
                   <Reveal key={i} delay={i * 70}>
                     <div className="flex gap-4">
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-lc-ink text-lc-yellow"><Icon className="h-5 w-5" /></span>
+                      <span className="icon-tile flex h-11 w-11 shrink-0 items-center justify-center bg-lc-ink text-lc-yellow"><Icon className="h-5 w-5" /></span>
                       <div>
                         <p className="text-xs font-semibold uppercase tracking-widest text-lc-muted">{item.label}</p>
                         <p className="mt-1 text-lc-ink">{item.value}</p>
@@ -93,7 +93,7 @@ export default function Contact() {
                 );
               })}
             </div>
-            <Reveal delay={200} className="mt-8 overflow-hidden rounded-lg border border-lc-ink/10">
+            <Reveal delay={200} className="card-3d mt-8 overflow-hidden">
               <iframe
                 title="Life Choices location"
                 src="https://www.google.com/maps?q=Lansdowne,Cape%20Town&output=embed"

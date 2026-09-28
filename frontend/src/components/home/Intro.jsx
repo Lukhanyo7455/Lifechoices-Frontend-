@@ -1,22 +1,18 @@
 import React from "react";
+import { Users } from "lucide-react";
 import { org } from "../../mock";
 import Reveal from "../common/Reveal";
+import Placeholder from "../common/Placeholder";
 
 export default function Intro() {
   return (
-    <section className="bg-lc-paper py-24 md:py-32">
+    <section className="relative bg-lc-paper py-24 md:py-32">
       <div className="container-lc grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         <div className="lg:col-span-5">
-          <Reveal className="relative">
-            <div className="overflow-hidden rounded-lg">
-              <img
-                src="https://images.unsplash.com/photo-1543689604-6fe8dbcd1f59?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200"
-                alt="Mentor and young people together"
-                className="h-[380px] md:h-[480px] w-full object-cover"
-              />
-            </div>
-            <div className="absolute bottom-5 right-5 bg-lc-yellow text-lc-ink rounded-md px-5 py-4 max-w-[200px]">
-              <p className="display text-lg leading-tight">Healing, uplifting & empowering.</p>
+          <Reveal className="group relative">
+            <Placeholder label="Life Choices imagery" icon={Users} className="h-[380px] md:h-[480px] w-full" rounded="rounded-2xl" />
+            <div className="card-3d absolute bottom-5 right-5 max-w-[210px] px-5 py-4">
+              <p className="display text-lg leading-tight text-lc-ink">Healing, uplifting & empowering.</p>
             </div>
           </Reveal>
         </div>

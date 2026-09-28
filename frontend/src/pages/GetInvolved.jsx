@@ -48,9 +48,9 @@ export default function GetInvolved() {
           {/* Donation card */}
           <div className="lg:col-span-6">
             <Reveal>
-              <div className="rounded-lg border border-lc-ink/10 bg-lc-paper2 p-7 md:p-9">
+              <div className="card-3d p-7 md:p-9">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-md bg-lc-ink text-lc-yellow"><Heart className="h-5 w-5" /></span>
+                  <span className="icon-tile flex h-11 w-11 items-center justify-center bg-lc-ink text-lc-yellow"><Heart className="h-5 w-5" /></span>
                   <h2 className="display text-2xl text-lc-ink">Make a donation</h2>
                 </div>
 
@@ -141,8 +141,8 @@ export default function GetInvolved() {
             const Icon = w.icon;
             return (
               <Reveal key={w.title} delay={i * 90}>
-                <div className="h-full rounded-lg border border-lc-ink/10 bg-lc-paper p-8">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-md" style={{ backgroundColor: "#14181F", color: "#9BBE3B" }}><Icon className="h-6 w-6" /></span>
+                <div className="card-3d h-full p-8">
+                  <span className="icon-tile flex h-12 w-12 items-center justify-center bg-lc-ink" style={{ color: "#9BBE3B" }}><Icon className="h-6 w-6" /></span>
                   <h3 className="display mt-6 text-2xl text-lc-ink">{w.title}</h3>
                   <p className="mt-3 text-[15px] leading-relaxed text-lc-muted">{w.text}</p>
                   <div className="mt-6"><Button to="/contact" variant="ghost" size="sm" arrow className="px-0">Enquire</Button></div>

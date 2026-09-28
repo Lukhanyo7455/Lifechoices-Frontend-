@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import PageHero from "../components/common/PageHero";
 import Section from "../components/common/Section";
 import Reveal from "../components/common/Reveal";
+import Placeholder from "../components/common/Placeholder";
 import { programmes, buildingBlocks } from "../mock";
 
 export default function Interventions() {
@@ -22,17 +23,13 @@ export default function Interventions() {
             const Icon = Icons[p.icon] || Icons.Circle;
             return (
               <Reveal key={p.slug} delay={(i % 2) * 90}>
-                <Link
-                  to={`/interventions/${p.slug}`}
-                  className="group flex h-full flex-col overflow-hidden rounded-lg border border-lc-ink/10 bg-lc-paper transition-all duration-300 hover:shadow-[0_30px_60px_rgba(20,24,31,0.12)]"
-                >
-                  <div className="relative h-64 overflow-hidden">
-                    <img src={p.image} alt={p.name} className="h-full w-full object-cover transition-transform duration-[900ms] group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-lc-ink/60 to-transparent" />
-                    <span className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold text-white" style={{ backgroundColor: `${p.color}E6` }}>
+                <Link to={`/interventions/${p.slug}`} className="card-3d group flex h-full flex-col overflow-hidden">
+                  <div className="relative">
+                    <Placeholder icon={Icon} label={`${p.block} imagery`} accent={p.color} className="h-64 w-full" rounded="rounded-none" />
+                    <span className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold text-white shadow-lg" style={{ backgroundColor: `${p.color}F2` }}>
                       <Icon className="h-3.5 w-3.5" />{p.block}
                     </span>
-                    <span className="absolute left-5 bottom-5 rounded-full bg-white/15 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">{p.tag}</span>
+                    <span className="absolute left-5 bottom-5 rounded-full bg-lc-ink/80 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">{p.tag}</span>
                   </div>
                   <div className="flex flex-1 flex-col p-7">
                     <h3 className="display text-2xl text-lc-ink">{p.name}</h3>
@@ -57,7 +54,7 @@ export default function Interventions() {
         <div className="mt-10 flex flex-wrap gap-3">
           {buildingBlocks.map((b, i) => (
             <Reveal key={b.key} delay={i * 60}>
-              <span className="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium" style={{ borderColor: `${b.color}55`, color: b.color, backgroundColor: `${b.color}0F` }}>
+              <span className="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium" style={{ borderColor: `${b.color}55`, color: b.color, backgroundColor: `${b.color}12` }}>
                 <span className="h-2 w-2 rounded-full" style={{ backgroundColor: b.color }} />
                 {b.title}
               </span>

@@ -28,8 +28,8 @@ export default function CTA() {
             const Icon = w.icon;
             return (
               <Reveal key={w.title} delay={i * 90}>
-                <div className="group h-full rounded-lg border border-lc-ink/10 bg-lc-paper2 p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_rgba(20,24,31,0.10)]">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-md bg-lc-ink text-lc-yellow">
+                <div className="card-3d group h-full p-8">
+                  <span className="icon-tile flex h-12 w-12 items-center justify-center bg-lc-ink text-lc-yellow">
                     <Icon className="h-6 w-6" />
                   </span>
                   <h3 className="display mt-6 text-2xl text-lc-ink">{w.title}</h3>

@@ -13,17 +13,16 @@ import {
   Briefcase
 } from "lucide-react";
 import { nav } from "../../mock";
-import Button from "../common/Button";
 
 const iconMap = { Home, HeartPulse, Compass, GraduationCap, Briefcase };
 
-function Logo({ light }) {
+function Logo() {
   return (
     <Link to="/" className="flex items-center gap-2 shrink-0" aria-label="Life Choices home">
-      <span className="inline-block h-7 w-2 rounded-sm bg-lc-yellow" />
+      <span className="inline-block h-6 w-1.5 rounded-sm bg-lc-yellow shadow-[0_0_12px_rgba(155,190,59,0.6)]" />
       <span className="leading-none">
-        <span className="display text-2xl italic font-bold text-lc-yellow">life</span>
-        <span className={`display text-2xl font-semibold ${light ? "text-white" : "text-lc-ink"}`}>choices</span>
+        <span className="display text-[22px] italic font-bold text-lc-yellow">life</span>
+        <span className="display text-[22px] font-semibold text-white">choices</span>
       </span>
     </Link>
   );
@@ -57,44 +56,37 @@ export default function Header() {
   const isActive = (to) => (to === "/" ? location.pathname === "/" : location.pathname.startsWith(to));
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-lc-paper/95 backdrop-blur-md border-b border-lc-ink/10 shadow-[0_8px_30px_rgba(20,24,31,0.06)]"
-          : "bg-lc-paper border-b border-transparent"
-      }`}
-      onMouseLeave={() => setActiveMenu(null)}
-    >
-      <div className="container-lc">
-        <div className="flex h-[74px] items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50" onMouseLeave={() => setActiveMenu(null)}>
+      <div className="container-lc relative">
+        <div
+          className={`glass-nav ${scrolled ? "is-scrolled" : ""} mt-3 flex h-[64px] items-center justify-between gap-4 rounded-2xl px-4 md:px-6 transition-all duration-500`}
+        >
           <Logo />
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-0.5">
             {nav.map((item) => {
               const hasMenu = item.type === "dropdown" || item.type === "mega";
               return (
-                <div
-                  key={item.label}
-                  className="relative"
-                  onMouseEnter={() => hasMenu && setActiveMenu(item.label)}
-                >
+                <div key={item.label} className="relative" onMouseEnter={() => hasMenu && setActiveMenu(item.label)}>
                   <Link
                     to={item.to}
-                    className={`flex items-center gap-1 px-4 py-2 text-[15px] font-medium transition-colors ${
-                      isActive(item.to) ? "text-lc-ink" : "text-lc-ink/70 hover:text-lc-ink"
+                    className={`relative flex items-center gap-1 rounded-lg px-3.5 py-2 text-[14px] font-medium transition-colors ${
+                      isActive(item.to) || activeMenu === item.label
+                        ? "text-white"
+                        : "text-white/65 hover:text-white"
                     }`}
                   >
                     {item.label}
                     {hasMenu && (
                       <ChevronDown
-                        className={`h-4 w-4 transition-transform duration-300 ${
+                        className={`h-3.5 w-3.5 transition-transform duration-300 ${
                           activeMenu === item.label ? "rotate-180" : ""
                         }`}
                       />
                     )}
                     <span
-                      className={`absolute left-4 right-4 -bottom-0.5 h-0.5 bg-lc-yellow transition-transform duration-300 origin-left ${
+                      className={`absolute left-3.5 right-3.5 -bottom-0.5 h-0.5 rounded-full bg-lc-yellow transition-transform duration-300 origin-left ${
                         isActive(item.to) ? "scale-x-100" : "scale-x-0"
                       }`}
                     />
@@ -104,123 +96,138 @@ export default function Header() {
             })}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-3">
-            <Button to="/get-involved" variant="ghost" size="sm">Get Involved</Button>
-            <Button to="/get-involved" variant="yellow" size="sm" arrow>Donate</Button>
+          <div className="hidden lg:flex items-center gap-2">
+            <Link
+              to="/get-involved"
+              className="rounded-lg px-3.5 py-2 text-[14px] font-medium text-white/75 transition-colors hover:text-white"
+            >
+              Get Involved
+            </Link>
+            <Link
+              to="/get-involved"
+              className="group inline-flex items-center gap-1.5 rounded-lg bg-lc-yellow px-4 py-2 text-[14px] font-semibold text-lc-ink shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_6px_16px_rgba(155,190,59,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-lc-yellowDeep hover:text-white"
+            >
+              Donate
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
           </div>
 
           {/* Mobile toggle */}
           <button
-            className="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-sm text-lc-ink"
+            className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg text-white"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
+
+        {/* Desktop dropdown / mega panels (floating dark glass) */}
+        {activeMenu &&
+          nav
+            .filter((i) => i.label === activeMenu && (i.type === "dropdown" || i.type === "mega"))
+            .map((item) => (
+              <div
+                key={item.label}
+                className="hidden lg:block absolute left-0 right-0 top-[76px] menu-in"
+              >
+                <div className={`glass-panel rounded-2xl p-6 ${item.type === "mega" ? "" : "max-w-3xl"}`}>
+                  {item.type === "mega" ? (
+                    <div className="grid grid-cols-12 gap-6">
+                      <div className="col-span-8">
+                        <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-lc-yellow">
+                          Our Interventions
+                        </p>
+                        <div className="grid grid-cols-2 gap-2">
+                          {item.items.map((sub) => {
+                            const Icon = iconMap[sub.icon] || Home;
+                            return (
+                              <Link
+                                key={sub.to}
+                                to={sub.to}
+                                className="glass-item group flex gap-3.5 rounded-xl p-3.5"
+                              >
+                                <span
+                                  className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg"
+                                  style={{ backgroundColor: `${sub.color}26`, color: sub.color }}
+                                >
+                                  <Icon className="h-5 w-5" />
+                                </span>
+                                <span>
+                                  <span className="flex items-center gap-1 font-semibold text-white">
+                                    {sub.label}
+                                    <ArrowRight className="h-3.5 w-3.5 opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
+                                  </span>
+                                  <span className="mt-0.5 block text-[12.5px] leading-snug text-white/55">
+                                    {sub.desc}
+                                  </span>
+                                </span>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      </div>
+                      <div className="col-span-4">
+                        <div className="flex h-full flex-col justify-between rounded-xl border border-white/10 bg-white/[0.04] p-6">
+                          <div>
+                            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-lc-yellow">
+                              Since 2005
+                            </p>
+                            <p className="display text-xl leading-tight text-white">
+                              Interlocking programmes that help youth thrive.
+                            </p>
+                          </div>
+                          <Link
+                            to="/interventions"
+                            className="mt-6 inline-flex items-center gap-2 font-semibold text-lc-yellow"
+                          >
+                            Explore all our work
+                            <ArrowRight className="h-4 w-4" />
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-2 gap-2">
+                      {item.items.map((sub) => (
+                        <Link
+                          key={sub.to + sub.label}
+                          to={sub.to}
+                          className="glass-item group rounded-xl p-4"
+                        >
+                          <span className="flex items-center gap-1 font-semibold text-white">
+                            {sub.label}
+                            <ArrowUpRight className="h-4 w-4 text-white/40 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                          </span>
+                          <span className="mt-1 block text-[12.5px] leading-snug text-white/55">{sub.desc}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
       </div>
 
-      {/* Desktop dropdown / mega panels */}
-      {activeMenu &&
-        nav
-          .filter((i) => i.label === activeMenu && (i.type === "dropdown" || i.type === "mega"))
-          .map((item) => (
-            <div
-              key={item.label}
-              className="hidden lg:block absolute left-0 right-0 top-full border-t border-lc-ink/10 bg-lc-paper/98 backdrop-blur-md shadow-[0_30px_60px_rgba(20,24,31,0.12)]"
-            >
-              <div className="container-lc py-9 menu-in">
-                {item.type === "mega" ? (
-                  <div className="grid grid-cols-12 gap-8">
-                    <div className="col-span-8">
-                      <p className="eyebrow mb-5">Our Interventions</p>
-                      <div className="grid grid-cols-2 gap-x-8 gap-y-1">
-                        {item.items.map((sub) => {
-                          const Icon = iconMap[sub.icon] || Home;
-                          return (
-                            <Link
-                              key={sub.to}
-                              to={sub.to}
-                              className="group flex gap-4 rounded-md p-4 -mx-4 transition-colors hover:bg-lc-paper2"
-                            >
-                              <span
-                                className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-md"
-                                style={{ backgroundColor: `${sub.color}18`, color: sub.color }}
-                              >
-                                <Icon className="h-5 w-5" />
-                              </span>
-                              <span>
-                                <span className="flex items-center gap-1 font-semibold text-lc-ink">
-                                  {sub.label}
-                                  <ArrowRight className="h-3.5 w-3.5 opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
-                                </span>
-                                <span className="mt-0.5 block text-[13px] leading-snug text-lc-muted">
-                                  {sub.desc}
-                                </span>
-                              </span>
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    </div>
-                    <div className="col-span-4">
-                      <div className="flex h-full flex-col justify-between rounded-lg bg-lc-ink p-7 text-lc-paper">
-                        <div>
-                          <p className="eyebrow-light mb-3">Since 2005</p>
-                          <p className="display text-2xl leading-tight">
-                            Interlocking programmes that help youth thrive.
-                          </p>
-                        </div>
-                        <Link
-                          to="/interventions"
-                          className="mt-6 inline-flex items-center gap-2 font-semibold text-lc-yellow"
-                        >
-                          Explore all our work
-                          <ArrowRight className="h-4 w-4" />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="grid grid-cols-3 gap-4 max-w-4xl">
-                    {item.items.map((sub) => (
-                      <Link
-                        key={sub.to + sub.label}
-                        to={sub.to}
-                        className="group rounded-md p-5 -m-1 transition-colors hover:bg-lc-paper2"
-                      >
-                        <span className="flex items-center gap-1 font-semibold text-lc-ink">
-                          {sub.label}
-                          <ArrowUpRight className="h-4 w-4 text-lc-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                        </span>
-                        <span className="mt-1 block text-[13px] leading-snug text-lc-muted">{sub.desc}</span>
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
-
-      {/* Mobile drawer */}
+      {/* Mobile drawer (dark glass) */}
       <div
-        className={`lg:hidden fixed inset-0 top-[74px] z-40 bg-lc-paper transition-all duration-300 ${
+        className={`lg:hidden fixed inset-0 top-0 z-40 transition-all duration-300 ${
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="h-full overflow-y-auto px-6 py-6 pb-28">
+        <div className="glass-panel h-full overflow-y-auto px-6 pt-24 pb-28">
           {nav.map((item) => {
             const hasMenu = item.type === "dropdown" || item.type === "mega";
             const open = mobileSub === item.label;
             return (
-              <div key={item.label} className="border-b border-lc-ink/10">
+              <div key={item.label} className="border-b border-white/10">
                 <div className="flex items-center justify-between">
-                  <Link to={item.to} className="py-4 text-lg font-medium text-lc-ink">
+                  <Link to={item.to} className="py-4 text-lg font-medium text-white">
                     {item.label}
                   </Link>
                   {hasMenu && (
                     <button
-                      className="p-3 text-lc-ink"
+                      className="p-3 text-white/70"
                       onClick={() => setMobileSub(open ? null : item.label)}
                       aria-label={`Toggle ${item.label}`}
                     >
@@ -229,19 +236,28 @@ export default function Header() {
                   )}
                 </div>
                 {hasMenu && (
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ${open ? "max-h-[600px]" : "max-h-0"}`}
-                  >
-                    <div className="pb-4 pl-3">
-                      {item.items.map((sub) => (
-                        <Link
-                          key={sub.to + sub.label}
-                          to={sub.to}
-                          className="block py-2.5 text-[15px] text-lc-ink/75"
-                        >
-                          {sub.label}
-                        </Link>
-                      ))}
+                  <div className={`overflow-hidden transition-all duration-300 ${open ? "max-h-[640px]" : "max-h-0"}`}>
+                    <div className="pb-4 pl-2">
+                      {item.items.map((sub) => {
+                        const Icon = iconMap[sub.icon] || Home;
+                        return (
+                          <Link
+                            key={sub.to + sub.label}
+                            to={sub.to}
+                            className="flex items-center gap-3 py-3 text-[15px] text-white/70"
+                          >
+                            {sub.icon && (
+                              <span
+                                className="flex h-8 w-8 items-center justify-center rounded-lg"
+                                style={{ backgroundColor: `${sub.color || "#9BBE3B"}26`, color: sub.color || "#9BBE3B" }}
+                              >
+                                <Icon className="h-4 w-4" />
+                              </span>
+                            )}
+                            {sub.label}
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
                 )}
@@ -249,8 +265,18 @@ export default function Header() {
             );
           })}
           <div className="mt-8 flex flex-col gap-3">
-            <Button to="/get-involved" variant="outline" size="md">Get Involved</Button>
-            <Button to="/get-involved" variant="yellow" size="md" arrow>Donate</Button>
+            <Link
+              to="/get-involved"
+              className="rounded-xl border border-white/20 px-6 py-3.5 text-center font-semibold text-white"
+            >
+              Get Involved
+            </Link>
+            <Link
+              to="/get-involved"
+              className="rounded-xl bg-lc-yellow px-6 py-3.5 text-center font-semibold text-lc-ink"
+            >
+              Donate
+            </Link>
           </div>
         </div>
       </div>
