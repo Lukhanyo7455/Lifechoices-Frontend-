@@ -57,7 +57,9 @@ export default function Footer() {
           <ul className="mt-4 space-y-3 text-sm">
             <li><Link to="/about" className="text-white/75 hover:text-lc-yellow">About Us</Link></li>
             <li><Link to="/about#approach" className="text-white/75 hover:text-lc-yellow">Our Approach</Link></li>
-            <li><Link to="/about#team" className="text-white/75 hover:text-lc-yellow">Meet the Team</Link></li>
+            <li><Link to="/team" className="text-white/75 hover:text-lc-yellow">Meet the Team</Link></li>
+            <li><Link to="/sustainability" className="text-white/75 hover:text-lc-yellow">Sustainability</Link></li>
+            <li><Link to="/donors" className="text-white/75 hover:text-lc-yellow">Our Donors</Link></li>
             <li><Link to="/impact" className="text-white/75 hover:text-lc-yellow">Impact & Reports</Link></li>
             <li><Link to="/stories" className="text-white/75 hover:text-lc-yellow">Stories</Link></li>
           </ul>

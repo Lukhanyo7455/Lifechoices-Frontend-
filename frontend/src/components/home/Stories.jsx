@@ -32,7 +32,7 @@ export default function Stories() {
         <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-7">
           {featured.map((s, i) => (
             <Reveal key={s.slug} delay={i * 90}>
-              <Link to="/stories" className="card-3d group block overflow-hidden">
+              <Link to={`/stories/${s.slug}`} className="card-3d group block overflow-hidden">
                 <Placeholder icon={Newspaper} label={`${s.programme} story`} className="h-56 w-full" rounded="rounded-none" />
                 <div className="p-6">
                   <div className="flex items-center gap-3 text-xs uppercase tracking-widest text-lc-muted">

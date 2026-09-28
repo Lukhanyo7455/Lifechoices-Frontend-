@@ -259,6 +259,78 @@ export const partners = [
   "Health Partner"
 ];
 
+// Sustainability initiatives (from lifechoices.co.za/sustainability) \u2014 social enterprises
+// that support the organisation's financial sustainability. Descriptions summarised for prototype.
+export const sustainabilityInitiatives = [
+  {
+    name: "LC Studio",
+    icon: "Video",
+    color: "#159AA8",
+    href: "http://lcstudio.co.za/",
+    desc: "A creative media and production studio that builds skills and generates income to support our youth work."
+  },
+  {
+    name: "Green Solar Academy",
+    icon: "Sun",
+    color: "#3E9B57",
+    href: "https://lifechoices.co.za/green-partnership/",
+    desc: "A green-skills partnership training young people for careers in the growing solar and renewable energy sector."
+  },
+  {
+    name: "Nurturer",
+    icon: "Sprout",
+    color: "#9BBE3B",
+    href: "https://nurturer.co.za/",
+    desc: "An initiative focused on nurturing and early support, extending our impact into the wider community."
+  },
+  {
+    name: "Campus Rental",
+    icon: "Building2",
+    color: "#2E62D8",
+    href: "mailto:innocent@lifechoices.co.za",
+    desc: "Venue and space rental at our Lansdowne campus, creating a sustainable income stream for our programmes."
+  }
+];
+
+// Present donors (real names from lifechoices.co.za/donors) \u2014 shown as placeholder logo tiles.
+export const donorsPresent = [
+  "Don Bosco Mondo",
+  "Investec",
+  "Maria Marina",
+  "Knorr-Bremse",
+  "Don Bosco Jugendhilfe",
+  "Rolf Stephan Nussbaum Foundation",
+  "Cover2Cover Books",
+  "Dr Rau Stiftung",
+  "Misereor",
+  "Momentum",
+  "Argon Asset Management",
+  "Department of Social Development",
+  "Umckaloabo Stiftung",
+  "Van Kesteren Foundation",
+  "VIK Stiftung",
+  "Futuregrowth",
+  "IDC",
+  "FW de Klerk Foundation",
+  "HCI Foundation",
+  "Meltwater",
+  "Western Cape Government",
+  "Department of Health",
+  "PEPFAR",
+  "MBA",
+  "Walter & Louise Davidson Foundation"
+];
+
+export const donorsPrevious = [
+  "Naked Insurance",
+  "Previous Partner Foundation",
+  "Previous Corporate Supporter",
+  "Previous Philanthropic Trust",
+  "Previous Community Partner",
+  "Previous Education Partner"
+];
+
+
 export const nav = [
   { label: "Home", to: "/" },
   {
@@ -268,7 +340,8 @@ export const nav = [
     items: [
       { label: "Who We Are", to: "/about", desc: "Our story, vision and the communities we serve" },
       { label: "Our Approach", to: "/about#approach", desc: "The five building blocks that help youth thrive" },
-      { label: "Meet the Team", to: "/about#team", desc: "The people behind Life Choices" },
+      { label: "Meet the Team", to: "/team", desc: "The people behind Life Choices" },
+      { label: "Our Donors", to: "/donors", desc: "The partners who make our work possible" },
       { label: "Reports & Impact", to: "/impact", desc: "Annual reports and measured outcomes" }
     ]
   },
@@ -285,6 +358,7 @@ export const nav = [
       block: p.block
     }))
   },
+  { label: "Sustainability", to: "/sustainability" },
   { label: "Impact", to: "/impact" },
   { label: "Stories", to: "/stories" },
   { label: "Contact", to: "/contact" }
