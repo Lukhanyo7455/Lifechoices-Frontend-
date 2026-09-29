@@ -153,6 +153,90 @@ export const contentMap = {
       { value: 1, suffix: "-on-1", label: "Psychosocial support" },
       { value: 100, suffix: "%", label: "School-community rooted" }
     ]
+  },
+
+  "youthcode": {
+    template: "initiative",
+    eyebrow: "Initiatives",
+    color: "#2E62D8",
+    icon: "Code2",
+    block: "Digital Skills",
+    title: "YouthCode",
+    heroLine: "Every young person deserves the digital skills to build their future.",
+    intro:
+      "YouthCode introduces young people to coding and digital literacy, opening doors to the fast-growing technology economy. [Summarised for prototype.]",
+    what: [
+      "Hands-on coding and digital-skills training that builds confidence, problem-solving and employability.",
+      "Pathways into further learning, internships and the digital workforce."
+    ],
+    stats: [
+      { value: 100, suffix: "%", label: "Practical, project-based" },
+      { value: 1, suffix: "", label: "Clear digital pathway" },
+      { value: 2005, suffix: "", label: "Rooted since" }
+    ]
+  },
+
+  "youthforce": {
+    template: "initiative",
+    eyebrow: "Initiatives",
+    color: "#E8A800",
+    icon: "Rocket",
+    block: "Work-readiness",
+    title: "YouthForce",
+    heroLine: "Connecting young people to real opportunities and the world of work.",
+    intro:
+      "YouthForce prepares young people for employment through work-readiness training, mentorship and pathways into meaningful opportunity. [Summarised for prototype.]",
+    what: [
+      "Work-readiness, professional skills and interview preparation tailored to young job-seekers.",
+      "Connections to employers, internships and further opportunity."
+    ],
+    stats: [
+      { value: 100, suffix: "%", label: "Opportunity-focused" },
+      { value: 1, suffix: "-on-1", label: "Mentorship support" },
+      { value: 4, suffix: "+", label: "Skills pathways" }
+    ]
+  },
+
+  "solar-youth": {
+    template: "initiative",
+    eyebrow: "Initiatives",
+    color: "#3E9B57",
+    icon: "Sun",
+    block: "Green Skills",
+    title: "Solar Youth",
+    heroLine: "Training a new generation for careers in the green energy economy.",
+    intro:
+      "Solar Youth, in partnership with the Green Solar Academy, trains young people for careers in the growing solar and renewable-energy sector. [Summarised for prototype.]",
+    what: [
+      "Accredited green-skills training that prepares young people for solar installation and renewable-energy work.",
+      "A direct pathway into one of South Africa\u2019s fastest-growing industries."
+    ],
+    stats: [
+      { value: 100, suffix: "%", label: "Green-skills focused" },
+      { value: 1, suffix: "", label: "Industry partnership" },
+      { value: 4, suffix: "+", label: "Career pathways" }
+    ]
+  },
+
+  "lc-studio": {
+    template: "initiative",
+    eyebrow: "Initiatives",
+    color: "#159AA8",
+    icon: "Video",
+    block: "Creative Enterprise",
+    title: "LC Studio",
+    heroLine: "A creative media enterprise that builds skills and sustains our mission.",
+    intro:
+      "LC Studio is a creative media and production enterprise that develops young people\u2019s talent while generating income that supports our youth programmes. [Summarised for prototype.]",
+    what: [
+      "Media, film and content production that builds real creative and technical skills.",
+      "A social enterprise model where commercial work helps fund our impact."
+    ],
+    stats: [
+      { value: 100, suffix: "%", label: "Purpose-driven revenue" },
+      { value: 1, suffix: "", label: "In-house creative team" },
+      { value: 2005, suffix: "", label: "Part of Life Choices since" }
+    ]
   }
 };
 

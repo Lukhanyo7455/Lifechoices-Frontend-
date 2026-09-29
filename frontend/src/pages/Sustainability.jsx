@@ -1,6 +1,7 @@
 import React from "react";
 import * as Icons from "lucide-react";
-import { ArrowUpRight, Leaf } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowUpRight, ArrowRight, Leaf } from "lucide-react";
 import PageHero from "../components/common/PageHero";
 import Section from "../components/common/Section";
 import Reveal from "../components/common/Reveal";
@@ -33,26 +34,30 @@ export default function Sustainability() {
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-7">
           {sustainabilityInitiatives.map((it, i) => {
             const Icon = Icons[it.icon] || Leaf;
+            const internal = it.href.startsWith("/");
+            const Comp = internal ? Link : "a";
+            const linkProps = internal
+              ? { to: it.href }
+              : { href: it.href, target: "_blank", rel: "noopener noreferrer" };
             return (
               <Reveal key={it.name} delay={(i % 2) * 90}>
-                <a
-                  href={it.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="card-3d group flex h-full items-start gap-5 p-8"
-                >
+                <Comp {...linkProps} className="card-3d group flex h-full items-start gap-5 p-8">
                   <span className="icon-tile flex h-14 w-14 shrink-0 items-center justify-center" style={{ backgroundColor: `${it.color}1F`, color: it.color }}>
                     <Icon className="h-7 w-7" />
                   </span>
                   <div>
                     <div className="flex items-center gap-1.5">
                       <h3 className="display text-2xl text-lc-ink">{it.name}</h3>
-                      <ArrowUpRight className="h-5 w-5 text-lc-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      {internal ? (
+                        <ArrowRight className="h-5 w-5 text-lc-muted transition-transform group-hover:translate-x-0.5" />
+                      ) : (
+                        <ArrowUpRight className="h-5 w-5 text-lc-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      )}
                     </div>
                     <p className="mt-3 text-[15px] leading-relaxed text-lc-muted">{it.desc}</p>
                     <span className="mt-5 block h-1 w-12 origin-left rounded-full transition-transform duration-300 group-hover:scale-x-[1.8]" style={{ backgroundColor: it.color }} />
                   </div>
-                </a>
+                </Comp>
               </Reveal>
             );
           })}

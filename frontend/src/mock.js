@@ -263,18 +263,32 @@ export const partners = [
 // that support the organisation's financial sustainability. Descriptions summarised for prototype.
 export const sustainabilityInitiatives = [
   {
+    name: "Solar Youth",
+    icon: "Sun",
+    color: "#3E9B57",
+    href: "/solar-youth",
+    desc: "Green-skills training preparing young people for careers in the solar and renewable-energy sector."
+  },
+  {
     name: "LC Studio",
     icon: "Video",
     color: "#159AA8",
-    href: "http://lcstudio.co.za/",
-    desc: "A creative media and production studio that builds skills and generates income to support our youth work."
+    href: "/lc-studio",
+    desc: "A creative media and production enterprise that builds skills and generates income for our youth work."
   },
   {
-    name: "Green Solar Academy",
-    icon: "Sun",
-    color: "#3E9B57",
-    href: "https://lifechoices.co.za/green-partnership/",
-    desc: "A green-skills partnership training young people for careers in the growing solar and renewable energy sector."
+    name: "YouthCode",
+    icon: "Code2",
+    color: "#2E62D8",
+    href: "/youthcode",
+    desc: "Coding and digital-literacy training that opens doors to the technology economy."
+  },
+  {
+    name: "YouthForce",
+    icon: "Rocket",
+    color: "#E8A800",
+    href: "/youthforce",
+    desc: "Work-readiness and mentorship connecting young people to real employment opportunities."
   },
   {
     name: "Nurturer",
@@ -286,7 +300,7 @@ export const sustainabilityInitiatives = [
   {
     name: "Campus Rental",
     icon: "Building2",
-    color: "#2E62D8",
+    color: "#6B7280",
     href: "mailto:innocent@lifechoices.co.za",
     desc: "Venue and space rental at our Lansdowne campus, creating a sustainable income stream for our programmes."
   }
