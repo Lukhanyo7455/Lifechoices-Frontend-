@@ -339,27 +339,37 @@ export const nav = [
     type: "dropdown",
     items: [
       { label: "Who We Are", to: "/about", desc: "Our story, vision and the communities we serve" },
-      { label: "Our Approach", to: "/about#approach", desc: "The five building blocks that help youth thrive" },
-      { label: "Meet the Team", to: "/team", desc: "The people behind Life Choices" },
-      { label: "Our Donors", to: "/donors", desc: "The partners who make our work possible" },
-      { label: "Reports & Impact", to: "/impact", desc: "Annual reports and measured outcomes" }
+      { label: "Meet The Team", to: "/team", desc: "The people behind Life Choices" },
+      { label: "Meet the Board", to: "/meet-the-board", desc: "Governance and strategic oversight" },
+      { label: "Donors", to: "/donors", desc: "The partners who make our work possible" },
+      { label: "Annual Reports", to: "/annual-reports", desc: "Transparent yearly impact reporting" },
+      { label: "Legal Documents", to: "/legal-documents", desc: "Governance and compliance documents" }
     ]
   },
   {
-    label: "Our Work",
+    label: "Interventions",
     to: "/interventions",
     type: "mega",
-    items: programmes.map((p) => ({
-      label: p.name,
-      to: `/interventions/${p.slug}`,
-      desc: p.summary,
-      color: p.color,
-      icon: p.icon,
-      block: p.block
-    }))
+    items: [
+      ...programmes.map((p) => ({
+        label: p.name,
+        to: `/interventions/${p.slug}`,
+        desc: p.summary,
+        color: p.color,
+        icon: p.icon,
+        block: p.block
+      })),
+      {
+        label: "Safe and Healthy High Schools",
+        to: "/safe-and-healthy-high-schools",
+        desc: "Whole-school wellbeing, safety and support for learners and staff.",
+        color: "#159AA8",
+        icon: "ShieldCheck",
+        block: "Schools"
+      }
+    ]
   },
   { label: "Sustainability", to: "/sustainability" },
-  { label: "Impact", to: "/impact" },
-  { label: "Stories", to: "/stories" },
+  { label: "Blog", to: "/stories" },
   { label: "Contact", to: "/contact" }
 ];

@@ -1,9 +1,12 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, useParams, Navigate } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import { Toaster } from "./components/ui/sonner";
+import StandardPage from "./templates/StandardPage";
+import InitiativePage from "./templates/InitiativePage";
+import { getContent } from "./content/contentMap";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Interventions from "./pages/Interventions";
@@ -76,6 +79,13 @@ function useCardTilt() {
   return null;
 }
 
+function ContentRoute() {
+  const { slug } = useParams();
+  const data = getContent(slug);
+  if (!data) return <Navigate to="/" replace />;
+  return data.template === "initiative" ? <InitiativePage /> : <StandardPage />;
+}
+
 function AnimatedRoutes() {
   const location = useLocation();
   return (
@@ -93,6 +103,7 @@ function AnimatedRoutes() {
         <Route path="/stories/:slug" element={<StoryDetail />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/get-involved" element={<GetInvolved />} />
+        <Route path="/:slug" element={<ContentRoute />} />
       </Routes>
     </div>
   );

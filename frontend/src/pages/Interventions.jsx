@@ -43,6 +43,25 @@ export default function Interventions() {
               </Reveal>
             );
           })}
+          <Reveal delay={90}>
+            <Link to="/safe-and-healthy-high-schools" className="card-3d group flex h-full flex-col overflow-hidden">
+              <div className="relative">
+                <Placeholder icon={Icons.ShieldCheck} label="Schools imagery" accent="#159AA8" className="h-64 w-full" rounded="rounded-none" />
+                <span className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold text-white shadow-lg" style={{ backgroundColor: "#159AA8F2" }}>
+                  <Icons.ShieldCheck className="h-3.5 w-3.5" />Schools
+                </span>
+                <span className="absolute left-5 bottom-5 rounded-full bg-lc-ink/80 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">Whole-school</span>
+              </div>
+              <div className="flex flex-1 flex-col p-7">
+                <h3 className="display text-2xl text-lc-ink">Safe and Healthy High Schools</h3>
+                <p className="mt-2 text-[15px] leading-relaxed text-lc-muted flex-1">Whole-school wellbeing, safety and support for learners and staff, bringing our health and leadership work together.</p>
+                <span className="mt-5 inline-flex items-center gap-2 font-semibold text-lc-ink">
+                  Explore initiative
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </div>
+            </Link>
+          </Reveal>
         </div>
       </Section>
 

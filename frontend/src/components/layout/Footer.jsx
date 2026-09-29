@@ -56,12 +56,12 @@ export default function Footer() {
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/45">Organisation</p>
           <ul className="mt-4 space-y-3 text-sm">
             <li><Link to="/about" className="text-white/75 hover:text-lc-yellow">About Us</Link></li>
-            <li><Link to="/about#approach" className="text-white/75 hover:text-lc-yellow">Our Approach</Link></li>
-            <li><Link to="/team" className="text-white/75 hover:text-lc-yellow">Meet the Team</Link></li>
+            <li><Link to="/team" className="text-white/75 hover:text-lc-yellow">Meet The Team</Link></li>
+            <li><Link to="/meet-the-board" className="text-white/75 hover:text-lc-yellow">Meet the Board</Link></li>
+            <li><Link to="/donors" className="text-white/75 hover:text-lc-yellow">Donors</Link></li>
+            <li><Link to="/annual-reports" className="text-white/75 hover:text-lc-yellow">Annual Reports</Link></li>
+            <li><Link to="/legal-documents" className="text-white/75 hover:text-lc-yellow">Legal Documents</Link></li>
             <li><Link to="/sustainability" className="text-white/75 hover:text-lc-yellow">Sustainability</Link></li>
-            <li><Link to="/donors" className="text-white/75 hover:text-lc-yellow">Our Donors</Link></li>
-            <li><Link to="/impact" className="text-white/75 hover:text-lc-yellow">Impact & Reports</Link></li>
-            <li><Link to="/stories" className="text-white/75 hover:text-lc-yellow">Stories</Link></li>
           </ul>
         </div>
 
