@@ -3,12 +3,15 @@ import { impactStats } from "../../mock";
 import StatCounter from "../common/StatCounter";
 import Reveal from "../common/Reveal";
 import Button from "../common/Button";
+import Atmosphere from "../common/Atmosphere";
 
 export default function Impact() {
   return (
     <section className="relative overflow-hidden bg-lc-ink text-lc-paper py-24 md:py-32">
+      <div className="pointer-events-none absolute inset-0 bg-grid-dark opacity-50" />
+      <Atmosphere dark />
       <div className="pointer-events-none absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "radial-gradient(circle at 20% 20%, #9BBE3B 0, transparent 45%)" }} />
-      <div className="container-lc relative grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
+      <div className="container-lc relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
         <div className="lg:col-span-5">
           <Reveal>
             <p className="eyebrow-light mb-5"><span className="h-px w-8 bg-lc-yellow" />Measured Impact</p>

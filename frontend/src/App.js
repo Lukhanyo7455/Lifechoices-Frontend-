@@ -111,6 +111,7 @@ function App() {
         <Footer />
         <Toaster position="top-center" richColors />
       </BrowserRouter>
+      <div className="grain-overlay" aria-hidden="true" />
     </div>
   );
 }

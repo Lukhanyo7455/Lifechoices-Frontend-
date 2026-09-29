@@ -141,6 +141,94 @@ body {
   .page-transition { animation: none; }
 }
 
+/* =========================================================
+   3D ATMOSPHERE — abstract geometric depth (behind content)
+   ========================================================= */
+.atm {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.atm-layer {
+  position: absolute;
+  will-change: transform;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.atm-float {
+  animation: atmFloat 17s ease-in-out infinite alternate;
+}
+.atm-float-slow {
+  animation: atmFloat 24s ease-in-out infinite alternate;
+}
+.atm-spin {
+  animation: atmSpin 90s linear infinite;
+}
+@keyframes atmFloat {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(0, -18px, 0); }
+}
+@keyframes atmSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* soft light orb */
+.atm-orb {
+  border-radius: 9999px;
+  filter: blur(64px);
+}
+/* wireframe ring */
+.atm-ring {
+  border-radius: 9999px;
+  border: 1px solid rgba(20, 24, 31, 0.10);
+}
+.atm-ring-dark { border-color: rgba(255, 255, 255, 0.10); }
+
+/* translucent glass panel */
+.atm-panel {
+  border-radius: 22px;
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.12));
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 20px 50px rgba(20, 24, 31, 0.05);
+}
+.atm-panel-dark {
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 24px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* small translucent geometric square */
+.atm-square {
+  border-radius: 16px;
+  border: 1px solid rgba(20, 24, 31, 0.08);
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.05));
+}
+.atm-square-dark {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atm-float, .atm-float-slow, .atm-spin { animation: none; }
+  .atm-layer { transition: none; }
+}
+
+/* Global film grain — barely-there atmosphere, above content, below nav */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 35;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+
 
 /* =========================================================
    3D / DEPTH DESIGN SYSTEM

@@ -5,11 +5,13 @@ import { ArrowRight } from "lucide-react";
 import { programmes } from "../../mock";
 import Reveal from "../common/Reveal";
 import Placeholder from "../common/Placeholder";
+import Atmosphere from "../common/Atmosphere";
 
 export default function Programmes() {
   return (
-    <section className="bg-lc-paper py-24 md:py-32">
-      <div className="container-lc">
+    <section className="relative overflow-hidden bg-lc-paper py-24 md:py-32">
+      <Atmosphere />
+      <div className="container-lc relative z-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div className="max-w-2xl">
             <Reveal>

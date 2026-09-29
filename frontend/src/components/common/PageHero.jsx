@@ -1,11 +1,13 @@
 import React from "react";
 import Reveal from "./Reveal";
+import Atmosphere from "./Atmosphere";
 
 // Reusable inner-page hero band (dark, institutional).
 export default function PageHero({ eyebrow, title, subtitle, align = "left", color }) {
   return (
     <section className="relative overflow-hidden bg-lc-ink text-lc-paper pt-[104px]">
       <div className="pointer-events-none absolute inset-0 bg-grid-dark opacity-60" />
+      <Atmosphere dark variant="hero" />
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.10]"
         style={{ backgroundImage: `radial-gradient(circle at 15% 25%, ${color || "#9BBE3B"} 0, transparent 42%)` }}

@@ -4,6 +4,7 @@ import { org, heroStats } from "../../mock";
 import Button from "../common/Button";
 import Reveal from "../common/Reveal";
 import Placeholder from "../common/Placeholder";
+import Atmosphere from "../common/Atmosphere";
 
 export default function Hero() {
   return (
@@ -11,9 +12,9 @@ export default function Hero() {
       {/* Layered depth backgrounds */}
       <div className="pointer-events-none absolute inset-0 bg-glow" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[560px] bg-grid opacity-70" />
-      <div className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-lc-yellow/10 blur-3xl" />
+      <Atmosphere variant="hero" />
 
-      <div className="container-lc relative grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 py-14 md:py-20 items-center">
+      <div className="container-lc relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 py-14 md:py-20 items-center">
         {/* Text column */}
         <div className="lg:col-span-6">
           <Reveal>
