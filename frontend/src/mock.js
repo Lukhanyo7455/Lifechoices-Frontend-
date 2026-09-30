@@ -243,6 +243,12 @@ export const stories = [
 ];
 
 export const team = [
+  {
+    name: "Ryan Geel",
+    role: "Campus Director",
+    photo: "https://lifechoices.co.za/wp-content/uploads/elementor/thumbs/Ryan-Geel-rd8l5wfvbilly9wmtryilw7k3r2x58f77tfvibqvwm.png",
+    bio: "Ryan is a communicator and he approaches everything he touches in a thorough and passionate way. He is dependable and has sound judgement with a practical and logical approach to all of his endeavors in life. Ryan has a natural shining outlook to everything in life."
+  },
   { name: "Placeholder Name", role: "Chief Executive Officer", image: "https://images.unsplash.com/photo-1659093728055-45f8275166d9?crop=entropy&cs=srgb&fm=jpg&q=85&w=600" },
   { name: "Placeholder Name", role: "Head of Programmes", image: "https://images.unsplash.com/photo-1764265148991-0335c05ca841?crop=entropy&cs=srgb&fm=jpg&q=85&w=600" },
   { name: "Placeholder Name", role: "Wellness Lead", image: "https://images.unsplash.com/photo-1617724757497-79b54c5444d2?crop=entropy&cs=srgb&fm=jpg&q=85&w=600" },

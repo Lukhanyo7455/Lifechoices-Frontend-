@@ -20,14 +20,19 @@ export default function Team() {
         <Reveal>
           <p className="text-lc-muted">Team members shown are placeholders for this prototype.</p>
         </Reveal>
-        <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-6 items-start">
           {team.map((m, i) => (
             <Reveal key={i} delay={i * 80}>
               <div className="card-3d group overflow-hidden">
-                <Placeholder icon={User} label="Team portrait" className="h-64 w-full" rounded="rounded-none" />
+                {m.photo ? (
+                  <img src={m.photo} alt={m.name} loading="lazy" className="h-64 w-full object-cover object-top" />
+                ) : (
+                  <Placeholder icon={User} label="Team portrait" className="h-64 w-full" rounded="rounded-none" />
+                )}
                 <div className="p-5">
                   <h3 className="display text-lg text-lc-ink">{m.name}</h3>
                   <p className="text-sm text-lc-yellowDeep font-semibold">{m.role}</p>
+                  {m.bio && <p className="mt-3 text-sm leading-relaxed text-lc-muted">{m.bio}</p>}
                 </div>
               </div>
             </Reveal>
