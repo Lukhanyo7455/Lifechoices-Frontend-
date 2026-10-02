@@ -16,6 +16,7 @@ import Stories from "./pages/Stories";
 import StoryDetail from "./pages/StoryDetail";
 import Contact from "./pages/Contact";
 import GetInvolved from "./pages/GetInvolved";
+import WPTest from "./pages/WPTest";
 import Sustainability from "./pages/Sustainability";
 import Donors from "./pages/Donors";
 import Team from "./pages/Team";
@@ -103,6 +104,7 @@ function AnimatedRoutes() {
         <Route path="/stories/:slug" element={<StoryDetail />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/get-involved" element={<GetInvolved />} />
+        <Route path="/wp-test" element={<WPTest />} />
         <Route path="/:slug" element={<ContentRoute />} />
       </Routes>
     </div>
