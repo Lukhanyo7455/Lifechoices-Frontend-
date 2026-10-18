@@ -22,8 +22,8 @@ module.exports = {
         lc: {
           ink: '#14181F',
           ink2: '#242A33',
-          paper: '#FBFAF6',
-          paper2: '#F1EEE5',
+          paper: '#FFFFFF',
+          paper2: '#F4F6F3',
           sand: '#E7E2D5',
           yellow: '#9BBE3B',
           yellowDeep: '#6E9327',

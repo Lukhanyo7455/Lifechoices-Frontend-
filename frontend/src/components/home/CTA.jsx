@@ -25,13 +25,13 @@ export default function CTA() {
         </div>
         <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
           {ways.map((w, i) => {
-            const Icon = w.icon;
             return (
               <Reveal key={w.title} delay={i * 90}>
                 <div className="card-3d group h-full p-8">
-                  <span className="icon-tile flex h-12 w-12 items-center justify-center bg-lc-ink text-lc-yellow">
-                    <Icon className="h-6 w-6" />
-                  </span>
+                  <div className="flex items-baseline gap-3">
+                    <span className="display text-4xl font-bold text-lc-yellowDeep">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="h-px flex-1 bg-lc-ink/10" />
+                  </div>
                   <h3 className="display mt-6 text-2xl text-lc-ink">{w.title}</h3>
                   <p className="mt-3 text-[15px] leading-relaxed text-lc-muted">{w.text}</p>
                   <div className="mt-6">

@@ -105,11 +105,10 @@ export default function About() {
           </div>
           <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
             {values.map((v, i) => {
-              const Icon = Icons[v.icon] || Icons.Circle;
               return (
                 <Reveal key={v.title} delay={i * 80}>
-                  <div className="card-3d flex gap-4 p-6">
-                    <span className="icon-tile flex h-11 w-11 shrink-0 items-center justify-center bg-lc-ink text-lc-yellow"><Icon className="h-5 w-5" /></span>
+                  <div className="card-3d flex gap-5 p-6">
+                    <span className="display text-3xl font-bold text-lc-yellowDeep leading-none">{String(i + 1).padStart(2, "0")}</span>
                     <div>
                       <h3 className="display text-xl text-lc-ink">{v.title}</h3>
                       <p className="mt-1.5 text-[15px] text-lc-muted">{v.text}</p>

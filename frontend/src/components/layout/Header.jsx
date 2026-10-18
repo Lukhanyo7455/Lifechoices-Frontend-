@@ -10,19 +10,18 @@ import {
   HeartPulse,
   Compass,
   GraduationCap,
-  Briefcase
+  Briefcase,
+  ShieldCheck
 } from "lucide-react";
 import { nav } from "../../mock";
 
-const iconMap = { Home, HeartPulse, Compass, GraduationCap, Briefcase };
+const iconMap = { Home, HeartPulse, Compass, GraduationCap, Briefcase, ShieldCheck };
 
 function Logo() {
   return (
-    <Link to="/" className="flex items-center gap-2 shrink-0" aria-label="Life Choices home">
-      <span className="inline-block h-6 w-1.5 rounded-sm bg-lc-yellow shadow-[0_0_12px_rgba(155,190,59,0.6)]" />
-      <span className="leading-none">
-        <span className="display text-[22px] italic font-bold text-lc-yellow">life</span>
-        <span className="display text-[22px] font-semibold text-white">choices</span>
+    <Link to="/" className="flex items-center shrink-0" aria-label="Life Choices home">
+      <span className="flex items-center rounded-xl bg-lc-ink px-3 py-2">
+        <img src="/brand/logo.png" alt="Life Choices" className="h-7 w-auto md:h-8" />
       </span>
     </Link>
   );
@@ -59,7 +58,7 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50" onMouseLeave={() => setActiveMenu(null)}>
       <div className="container-lc relative">
         <div
-          className={`glass-nav ${scrolled ? "is-scrolled" : ""} mt-3 flex h-[64px] items-center justify-between gap-4 rounded-2xl px-4 md:px-6 transition-all duration-500`}
+          className={`glass-nav ${scrolled ? "is-scrolled" : ""} mt-3 flex h-[64px] items-center justify-between gap-4 rounded-2xl px-3 md:px-5 transition-all duration-500`}
         >
           <Logo />
 
@@ -73,8 +72,8 @@ export default function Header() {
                     to={item.to}
                     className={`relative flex items-center gap-1 rounded-lg px-3.5 py-2 text-[14px] font-medium transition-colors ${
                       isActive(item.to) || activeMenu === item.label
-                        ? "text-white"
-                        : "text-white/65 hover:text-white"
+                        ? "text-lc-ink"
+                        : "text-lc-ink/60 hover:text-lc-ink"
                     }`}
                   >
                     {item.label}
@@ -99,7 +98,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-2">
             <Link
               to="/get-involved"
-              className="rounded-lg px-3.5 py-2 text-[14px] font-medium text-white/75 transition-colors hover:text-white"
+              className="rounded-lg px-3.5 py-2 text-[14px] font-medium text-lc-ink/70 transition-colors hover:text-lc-ink"
             >
               Get Involved
             </Link>
@@ -114,7 +113,7 @@ export default function Header() {
 
           {/* Mobile toggle */}
           <button
-            className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg text-white"
+            className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg text-lc-ink"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label="Toggle menu"
           >
@@ -122,43 +121,36 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Desktop dropdown / mega panels (floating dark glass) */}
+        {/* Desktop dropdown / mega panels */}
         {activeMenu &&
           nav
             .filter((i) => i.label === activeMenu && (i.type === "dropdown" || i.type === "mega"))
             .map((item) => (
-              <div
-                key={item.label}
-                className="hidden lg:block absolute left-0 right-0 top-[76px] menu-in"
-              >
+              <div key={item.label} className="hidden lg:block absolute left-0 right-0 top-[76px] menu-in">
                 <div className={`glass-panel rounded-2xl p-6 ${item.type === "mega" ? "" : "max-w-3xl"}`}>
                   {item.type === "mega" ? (
                     <div className="grid grid-cols-12 gap-6">
                       <div className="col-span-8">
-                        <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-lc-yellow">
+                        <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-lc-yellowDeep">
                           Our Interventions
                         </p>
                         <div className="grid grid-cols-2 gap-2">
                           {item.items.map((sub) => {
                             const Icon = iconMap[sub.icon] || Home;
                             return (
-                              <Link
-                                key={sub.to}
-                                to={sub.to}
-                                className="glass-item group flex gap-3.5 rounded-xl p-3.5"
-                              >
+                              <Link key={sub.to} to={sub.to} className="glass-item group flex gap-3.5 rounded-xl p-3.5">
                                 <span
                                   className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg"
-                                  style={{ backgroundColor: `${sub.color}26`, color: sub.color }}
+                                  style={{ backgroundColor: `${sub.color}1F`, color: sub.color }}
                                 >
                                   <Icon className="h-5 w-5" />
                                 </span>
                                 <span>
-                                  <span className="flex items-center gap-1 font-semibold text-white">
+                                  <span className="flex items-center gap-1 font-semibold text-lc-ink">
                                     {sub.label}
                                     <ArrowRight className="h-3.5 w-3.5 opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
                                   </span>
-                                  <span className="mt-0.5 block text-[12.5px] leading-snug text-white/55">
+                                  <span className="mt-0.5 block text-[12.5px] leading-snug text-lc-muted">
                                     {sub.desc}
                                   </span>
                                 </span>
@@ -168,7 +160,7 @@ export default function Header() {
                         </div>
                       </div>
                       <div className="col-span-4">
-                        <div className="flex h-full flex-col justify-between rounded-xl border border-white/10 bg-white/[0.04] p-6">
+                        <div className="flex h-full flex-col justify-between rounded-xl bg-lc-ink p-6">
                           <div>
                             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-lc-yellow">
                               Since 2005
@@ -177,10 +169,7 @@ export default function Header() {
                               Interlocking programmes that help youth thrive.
                             </p>
                           </div>
-                          <Link
-                            to="/interventions"
-                            className="mt-6 inline-flex items-center gap-2 font-semibold text-lc-yellow"
-                          >
+                          <Link to="/interventions" className="mt-6 inline-flex items-center gap-2 font-semibold text-lc-yellow">
                             Explore all our work
                             <ArrowRight className="h-4 w-4" />
                           </Link>
@@ -190,16 +179,12 @@ export default function Header() {
                   ) : (
                     <div className="grid grid-cols-2 gap-2">
                       {item.items.map((sub) => (
-                        <Link
-                          key={sub.to + sub.label}
-                          to={sub.to}
-                          className="glass-item group rounded-xl p-4"
-                        >
-                          <span className="flex items-center gap-1 font-semibold text-white">
+                        <Link key={sub.to + sub.label} to={sub.to} className="glass-item group rounded-xl p-4">
+                          <span className="flex items-center gap-1 font-semibold text-lc-ink">
                             {sub.label}
-                            <ArrowUpRight className="h-4 w-4 text-white/40 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                            <ArrowUpRight className="h-4 w-4 text-lc-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                           </span>
-                          <span className="mt-1 block text-[12.5px] leading-snug text-white/55">{sub.desc}</span>
+                          <span className="mt-1 block text-[12.5px] leading-snug text-lc-muted">{sub.desc}</span>
                         </Link>
                       ))}
                     </div>
@@ -209,7 +194,7 @@ export default function Header() {
             ))}
       </div>
 
-      {/* Mobile drawer (dark glass) */}
+      {/* Mobile drawer (white glass) */}
       <div
         className={`lg:hidden fixed inset-0 top-0 z-40 transition-all duration-300 ${
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
@@ -220,14 +205,14 @@ export default function Header() {
             const hasMenu = item.type === "dropdown" || item.type === "mega";
             const open = mobileSub === item.label;
             return (
-              <div key={item.label} className="border-b border-white/10">
+              <div key={item.label} className="border-b border-lc-ink/10">
                 <div className="flex items-center justify-between">
-                  <Link to={item.to} className="py-4 text-lg font-medium text-white">
+                  <Link to={item.to} className="py-4 text-lg font-medium text-lc-ink">
                     {item.label}
                   </Link>
                   {hasMenu && (
                     <button
-                      className="p-3 text-white/70"
+                      className="p-3 text-lc-ink/60"
                       onClick={() => setMobileSub(open ? null : item.label)}
                       aria-label={`Toggle ${item.label}`}
                     >
@@ -244,12 +229,12 @@ export default function Header() {
                           <Link
                             key={sub.to + sub.label}
                             to={sub.to}
-                            className="flex items-center gap-3 py-3 text-[15px] text-white/70"
+                            className="flex items-center gap-3 py-3 text-[15px] text-lc-ink/70"
                           >
                             {sub.icon && (
                               <span
                                 className="flex h-8 w-8 items-center justify-center rounded-lg"
-                                style={{ backgroundColor: `${sub.color || "#9BBE3B"}26`, color: sub.color || "#9BBE3B" }}
+                                style={{ backgroundColor: `${sub.color || "#9BBE3B"}1F`, color: sub.color || "#9BBE3B" }}
                               >
                                 <Icon className="h-4 w-4" />
                               </span>
@@ -265,16 +250,10 @@ export default function Header() {
             );
           })}
           <div className="mt-8 flex flex-col gap-3">
-            <Link
-              to="/get-involved"
-              className="rounded-xl border border-white/20 px-6 py-3.5 text-center font-semibold text-white"
-            >
+            <Link to="/get-involved" className="rounded-xl border border-lc-ink/20 px-6 py-3.5 text-center font-semibold text-lc-ink">
               Get Involved
             </Link>
-            <Link
-              to="/get-involved"
-              className="rounded-xl bg-lc-yellow px-6 py-3.5 text-center font-semibold text-lc-ink"
-            >
+            <Link to="/get-involved" className="rounded-xl bg-lc-yellow px-6 py-3.5 text-center font-semibold text-lc-ink">
               Donate
             </Link>
           </div>

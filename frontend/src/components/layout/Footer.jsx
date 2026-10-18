@@ -26,12 +26,8 @@ export default function Footer() {
 
       <div className="container-lc py-14 grid grid-cols-1 md:grid-cols-12 gap-10">
         <div className="md:col-span-4">
-          <div className="flex items-center gap-2">
-            <span className="inline-block h-7 w-2 rounded-sm bg-lc-yellow" />
-            <span className="leading-none">
-              <span className="display text-2xl italic font-bold text-lc-yellow">life</span>
-              <span className="display text-2xl font-semibold text-white">choices</span>
-            </span>
+          <div className="flex items-center">
+            <img src="/brand/logo.png" alt="Life Choices" className="h-9 w-auto" />
           </div>
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
             An innovative youth development organisation based in Cape Town, investing in young people so
