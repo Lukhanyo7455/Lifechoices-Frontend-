@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import * as Icons from "lucide-react";
 import { ArrowRight } from "lucide-react";
 import { programmes } from "../../mock";
 import Reveal from "../common/Reveal";
@@ -33,17 +32,15 @@ export default function Programmes() {
 
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-7">
           {programmes.map((p, i) => {
-            const Icon = Icons[p.icon] || Icons.Circle;
             return (
               <Reveal key={p.slug} delay={(i % 2) * 90}>
                 <Link to={`/interventions/${p.slug}`} className="card-3d group block overflow-hidden">
                   <div className="relative">
-                    <Placeholder icon={Icon} label={`${p.block} imagery`} accent={p.color} className="h-60 w-full" rounded="rounded-none" />
+                    <Placeholder label={`${p.block} imagery`} className="h-60 w-full" rounded="rounded-none" />
                     <span
-                      className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold text-white shadow-lg"
+                      className="absolute left-5 top-5 inline-flex items-center rounded-full px-3 py-1.5 text-xs font-semibold text-white shadow-lg"
                       style={{ backgroundColor: `${p.color}F2` }}
                     >
-                      <Icon className="h-3.5 w-3.5" />
                       {p.block}
                     </span>
                   </div>

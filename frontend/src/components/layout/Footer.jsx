@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Mail, Phone, ArrowUpRight, Linkedin, Facebook, Instagram } from "lucide-react";
+import { ArrowUpRight, Linkedin, Facebook, Instagram } from "lucide-react";
 import { org, programmes } from "../../mock";
 import Button from "../common/Button";
 
@@ -76,17 +76,26 @@ export default function Footer() {
 
         <div className="md:col-span-3">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/45">Visit / Contact</p>
-          <ul className="mt-4 space-y-4 text-sm text-white/75">
-            <li className="flex gap-3"><MapPin className="h-4 w-4 shrink-0 mt-0.5 text-lc-yellow" />{org.address}</li>
-            <li className="flex gap-3"><Mail className="h-4 w-4 shrink-0 mt-0.5 text-lc-yellow" />{org.email}</li>
-            <li className="flex gap-3"><Phone className="h-4 w-4 shrink-0 mt-0.5 text-lc-yellow" />{org.phone}</li>
+          <ul className="mt-4 space-y-5 text-sm text-white/75">
+            <li>
+              <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-lc-yellow">Visit</span>
+              <span className="mt-1 block">{org.address}</span>
+            </li>
+            <li>
+              <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-lc-yellow">Email</span>
+              <a href={`mailto:${org.email}`} className="mt-1 block hover:text-lc-yellow">{org.email}</a>
+            </li>
+            <li>
+              <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-lc-yellow">Call</span>
+              <a href={`tel:${org.phone.replace(/\s/g, "")}`} className="mt-1 block hover:text-lc-yellow">{org.phone}</a>
+            </li>
           </ul>
         </div>
       </div>
 
       <div className="border-t border-white/10">
         <div className="container-lc py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
-          <p>© {year} Life Choices. Redesign prototype — not the official website.</p>
+          <p>© {year} Life Choices. Redesign prototype. Not the official website.</p>
           <p className="flex items-center gap-1">
             Registered NPO · PBO · Cape Town, South Africa
           </p>

@@ -10,13 +10,13 @@ export default function PageHero({ eyebrow, title, subtitle, align = "left", col
       <Atmosphere dark variant="hero" />
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.10]"
-        style={{ backgroundImage: `radial-gradient(circle at 15% 25%, ${color || "#9BBE3B"} 0, transparent 42%)` }}
+        style={{ backgroundImage: `radial-gradient(circle at 15% 25%, ${color || "#ABCC37"} 0, transparent 42%)` }}
       />
       <div className={`container-lc relative py-20 md:py-28 ${align === "center" ? "text-center mx-auto max-w-3xl" : "max-w-3xl"}`}>
         {eyebrow && (
           <Reveal>
             <p className={`eyebrow-light mb-5 ${align === "center" ? "justify-center" : ""}`}>
-              <span className="h-px w-8" style={{ backgroundColor: color || "#9BBE3B" }} />
+              <span className="h-px w-8" style={{ backgroundColor: color || "#ABCC37" }} />
               {eyebrow}
             </p>
           </Reveal>

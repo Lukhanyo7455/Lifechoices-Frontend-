@@ -9,7 +9,7 @@ export const org = {
   address: "314 Imam Haron Road, Lansdowne, Cape Town, South Africa",
   email: "info@lifechoices.co.za",
   phone: "+27 21 761 4640",
-  tagline: "Youth is 37% of South Africa \u2014 but 100% of its future",
+  tagline: "Youth is 37% of South Africa, but 100% of its future",
   intro:
     "Life Choices is an innovative and impactful youth development organisation based in Cape Town. We work in schools, communities and from our Campus in Lansdowne, investing in young people so they can reach their potential.",
   visionLead: "Life Choices is working towards a world where\u2026",
@@ -30,35 +30,35 @@ export const buildingBlocks = [
   {
     key: "family",
     title: "Family Stability",
-    color: "#3E9B57",
+    color: "#5E7E1C",
     icon: "Home",
     text: "Nurturing home environments where young people feel safe, supported and able to grow."
   },
   {
     key: "health",
     title: "Health & Wellbeing",
-    color: "#CE2C5A",
+    color: "#3C6B1A",
     icon: "HeartPulse",
     text: "Access to youth-friendly health information, counselling and mental wellbeing support."
   },
   {
     key: "leadership",
     title: "Leadership & Life Skills",
-    color: "#E8A800",
+    color: "#5E7E1C",
     icon: "Compass",
     text: "Personal leadership, self-awareness and the life skills to take responsibility and dream big."
   },
   {
     key: "education",
     title: "Education & Skills",
-    color: "#159AA8",
+    color: "#3C6B1A",
     icon: "GraduationCap",
     text: "Learning support and skills development that open doors to further study and opportunity."
   },
   {
     key: "employment",
     title: "Employment & Work-readiness",
-    color: "#2E62D8",
+    color: "#5E7E1C",
     icon: "Briefcase",
     text: "Preparing young people for the world of work with market-relevant, practical skills."
   }
@@ -68,7 +68,7 @@ export const programmes = [
   {
     slug: "family-affairs",
     name: "Family Affairs",
-    color: "#3E9B57",
+    color: "#5E7E1C",
     block: "Family Stability",
     icon: "Home",
     tag: "Parents & caregivers",
@@ -79,7 +79,7 @@ export const programmes = [
     image:
       "https://images.unsplash.com/photo-1632215861513-130b66fe97f4?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400",
     why:
-      "Homes are the centre of our communities. Yet often parents themselves feel overwhelmed, and unable to create nurturing spaces, given the stresses within their community and environment. Family Affairs works with local CBOs and NPOs to offer positive parenting workshops, one-on-one counselling and ongoing support circles, so that parents \u2014 and their loved ones \u2014 can thrive.",
+      "Homes are the centre of our communities. Yet often parents themselves feel overwhelmed, and unable to create nurturing spaces, given the stresses within their community and environment. Family Affairs works with local CBOs and NPOs to offer positive parenting workshops, one-on-one counselling and ongoing support circles, so that parents, and their loved ones, can thrive.",
     endorsement:
       "The programme is endorsed by the Department of Social Development and the workshops are DSD-approved as part of their family-strengthening initiative.",
     what: [
@@ -95,7 +95,7 @@ export const programmes = [
   {
     slug: "health4life",
     name: "Health4Life",
-    color: "#CE2C5A",
+    color: "#3C6B1A",
     block: "Health & Wellbeing",
     icon: "HeartPulse",
     tag: "Learners in schools",
@@ -106,7 +106,7 @@ export const programmes = [
     image:
       "https://images.unsplash.com/photo-1781117244798-d3c52daa57dc?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400",
     why:
-      "In adolescence, young people begin making their own choices about how they live. Nearly two-thirds of premature deaths and a third of the disease burden in adults are linked to conditions or behaviours that began in youth. Half of all mental health disorders in adulthood start by the age of 14 \u2014 yet most cases go undetected and untreated. In our unequal society, those closer to the base of the pyramid have the least access to quality youth-friendly health services.",
+      "In adolescence, young people begin making their own choices about how they live. Nearly two-thirds of premature deaths and a third of the disease burden in adults are linked to conditions or behaviours that began in youth. Half of all mental health disorders in adulthood start by the age of 14, yet most cases go undetected and untreated. In our unequal society, those closer to the base of the pyramid have the least access to quality youth-friendly health services.",
     endorsement: "",
     what: [
       "Life Choices fills this gap by partnering with schools and communities to provide information, counselling and support. In our partner schools we provide HIV counselling and testing, including screening for TB, STIs and lifestyle risks, so each learner can develop a personalised risk-reduction plan.",
@@ -121,7 +121,7 @@ export const programmes = [
   {
     slug: "leaders-quest",
     name: "Leaders\u2019 Quest",
-    color: "#E8A800",
+    color: "#5E7E1C",
     block: "Leadership & Life Skills",
     icon: "Compass",
     tag: "High school learners",
@@ -132,7 +132,7 @@ export const programmes = [
     image:
       "https://images.unsplash.com/photo-1632215863153-0dae7657d0a9?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400",
     why:
-      "South Africa is crying out for better leadership \u2014 in government, in companies, in communities and in homes. Leaders\u2019 Quest aims to grow a new generation of leaders who are attuned to themselves and cognisant of the problems of the world. The focus is on personal leadership, taking responsibility for one\u2019s life and decisions, and dreaming big and planning strong, so that young people are free to thrive.",
+      "South Africa is crying out for better leadership, in government, in companies, in communities and in homes. Leaders\u2019 Quest aims to grow a new generation of leaders who are attuned to themselves and cognisant of the problems of the world. The focus is on personal leadership, taking responsibility for one\u2019s life and decisions, and dreaming big and planning strong, so that young people are free to thrive.",
     endorsement: "",
     what: [
       "Leaders\u2019 Quest provides aspirant high school learners with personal development tools and life skills so they are ready for the future. Operating in 10 high schools in Cape Town, the programme offers after-school leadership training, one-on-one coaching and psychosocial support.",
@@ -147,7 +147,7 @@ export const programmes = [
   {
     slug: "life-choices-academy",
     name: "Life Choices Academy",
-    color: "#2E62D8",
+    color: "#5E7E1C",
     block: "Employment & Work-readiness",
     icon: "Briefcase",
     tag: "Young adults",
@@ -158,10 +158,10 @@ export const programmes = [
     image:
       "https://images.unsplash.com/photo-1627423896085-e3e694d88e40?crop=entropy&cs=srgb&fm=jpg&q=85&w=1400",
     why:
-      "Youth unemployment is one of South Africa\u2019s most urgent challenges. Life Choices Academy helps young people bridge the gap between school and the world of work by building market-relevant skills, confidence and professional habits. [Placeholder copy \u2014 adapted from the public Life Choices Academy overview for this prototype.]",
+      "Youth unemployment is one of South Africa\u2019s most urgent challenges. Life Choices Academy helps young people bridge the gap between school and the world of work by building market-relevant skills, confidence and professional habits. [Placeholder copy, adapted from the public Life Choices Academy overview for this prototype.]",
     endorsement: "",
     what: [
-      "The Academy equips young adults with practical, in-demand skills and work-readiness training \u2014 from digital and communication skills to professional conduct and interview preparation. [Placeholder copy for prototype.]",
+      "The Academy equips young adults with practical, in-demand skills and work-readiness training, from digital and communication skills to professional conduct and interview preparation. [Placeholder copy for prototype.]",
       "Through partnerships with employers and further learning pathways, participants are supported to move into internships, further study or employment. [Placeholder copy for prototype.]"
     ],
     stats: [
@@ -215,7 +215,7 @@ export const stories = [
     title: "Taking the Lead",
     programme: "Leaders\u2019 Quest",
     excerpt:
-      "From the back of the classroom to the front of the stage \u2014 a story of servant leadership. [Placeholder excerpt for prototype.]",
+      "From the back of the classroom to the front of the stage, a story of servant leadership. [Placeholder excerpt for prototype.]",
     image:
       "https://images.unsplash.com/photo-1617724757497-79b54c5444d2?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200",
     date: "February 2025"
@@ -271,42 +271,42 @@ export const sustainabilityInitiatives = [
   {
     name: "Solar Youth",
     icon: "Sun",
-    color: "#3E9B57",
+    color: "#5E7E1C",
     href: "/solar-youth",
     desc: "Green-skills training preparing young people for careers in the solar and renewable-energy sector."
   },
   {
     name: "LC Studio",
     icon: "Video",
-    color: "#159AA8",
+    color: "#3C6B1A",
     href: "/lc-studio",
     desc: "A creative media and production enterprise that builds skills and generates income for our youth work."
   },
   {
     name: "YouthCode",
     icon: "Code2",
-    color: "#2E62D8",
+    color: "#5E7E1C",
     href: "/youthcode",
     desc: "Coding and digital-literacy training that opens doors to the technology economy."
   },
   {
     name: "YouthForce",
     icon: "Rocket",
-    color: "#E8A800",
+    color: "#5E7E1C",
     href: "/youthforce",
     desc: "Work-readiness and mentorship connecting young people to real employment opportunities."
   },
   {
     name: "Nurturer",
     icon: "Sprout",
-    color: "#9BBE3B",
+    color: "#5E7E1C",
     href: "https://nurturer.co.za/",
     desc: "An initiative focused on nurturing and early support, extending our impact into the wider community."
   },
   {
     name: "Campus Rental",
     icon: "Building2",
-    color: "#6B7280",
+    color: "#3C6B1A",
     href: "mailto:innocent@lifechoices.co.za",
     desc: "Venue and space rental at our Lansdowne campus, creating a sustainable income stream for our programmes."
   }
@@ -383,7 +383,7 @@ export const nav = [
         label: "Safe and Healthy High Schools",
         to: "/safe-and-healthy-high-schools",
         desc: "Whole-school wellbeing, safety and support for learners and staff.",
-        color: "#159AA8",
+        color: "#3C6B1A",
         icon: "ShieldCheck",
         block: "Schools"
       }

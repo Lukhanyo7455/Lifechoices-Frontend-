@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, Navigate } from "react-router-dom";
-import { Download, FileText, Check, User, ArrowRight } from "lucide-react";
+import { Download } from "lucide-react";
 import PageHero from "../components/common/PageHero";
 import Section from "../components/common/Section";
 import Reveal from "../components/common/Reveal";
@@ -28,7 +28,7 @@ function PeopleBlock({ s }) {
         {s.people.map((m, i) => (
           <Reveal key={i} delay={i * 70}>
             <div className="card-3d group overflow-hidden">
-              <Placeholder icon={User} label="Portrait" className="h-60 w-full" rounded="rounded-none" />
+              <Placeholder label="Portrait" className="h-60 w-full" rounded="rounded-none" />
               <div className="p-5">
                 <h3 className="display text-lg text-lc-ink">{m.name}</h3>
                 <p className="text-sm text-lc-yellowDeep font-semibold">{m.role}</p>
@@ -50,10 +50,7 @@ function DownloadsBlock({ s }) {
         {s.items.map((it, i) => (
           <Reveal key={i} delay={i * 60}>
             <div className="card-3d p-6 md:flex md:items-center md:justify-between gap-6">
-              <div className="flex items-center gap-4">
-                <span className="icon-tile flex h-12 w-12 items-center justify-center bg-lc-ink text-lc-yellow"><FileText className="h-6 w-6" /></span>
-                <h3 className="display text-xl text-lc-ink">{it.label}</h3>
-              </div>
+              <h3 className="display text-xl text-lc-ink">{it.label}</h3>
               <div className="mt-5 md:mt-0 flex flex-wrap gap-2">
                 {it.years.map((y) => (
                   <a key={y} href="https://lifechoices.co.za/" target="_blank" rel="noopener noreferrer"
@@ -79,12 +76,9 @@ function DocumentsBlock({ s }) {
         {s.items.map((it, i) => (
           <Reveal key={i} delay={i * 60}>
             <a href="https://lifechoices.co.za/" target="_blank" rel="noopener noreferrer" className="card-3d group flex items-center justify-between p-6">
-              <div className="flex items-center gap-4">
-                <span className="icon-tile flex h-11 w-11 items-center justify-center bg-lc-ink text-lc-yellow"><FileText className="h-5 w-5" /></span>
-                <div>
-                  <h3 className="display text-lg text-lc-ink">{it.label}</h3>
-                  <p className="text-sm text-lc-muted">{it.desc}</p>
-                </div>
+              <div>
+                <h3 className="display text-lg text-lc-ink">{it.label}</h3>
+                <p className="text-sm text-lc-muted">{it.desc}</p>
               </div>
               <Download className="h-5 w-5 text-lc-muted transition-transform group-hover:translate-y-0.5" />
             </a>

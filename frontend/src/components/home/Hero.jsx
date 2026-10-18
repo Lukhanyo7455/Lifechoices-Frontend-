@@ -18,8 +18,8 @@ export default function Hero() {
           </Reveal>
           <Reveal delay={80}>
             <h1 className="display mt-5 text-[40px] leading-[1.04] sm:text-5xl lg:text-[58px] text-white">
-              Youth is <span className="text-lc-yellow">37%</span> of South Africa
-              <span className="block">— but <em className="italic">100%</em> of its future.</span>
+              Youth is <span className="text-lc-yellow">37%</span> of South Africa,
+              <span className="block">yet <em className="italic">100%</em> of its future.</span>
             </h1>
           </Reveal>
           <Reveal delay={160}>

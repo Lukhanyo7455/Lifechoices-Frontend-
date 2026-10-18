@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import * as Icons from "lucide-react";
 import { ArrowRight } from "lucide-react";
 import PageHero from "../components/common/PageHero";
 import Section from "../components/common/Section";

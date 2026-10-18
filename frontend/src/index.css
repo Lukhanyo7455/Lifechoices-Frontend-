@@ -47,7 +47,7 @@ body {
 }
 
 ::selection {
-  background: #9BBE3B;
+  background: #ABCC37;
   color: #14181F;
 }
 
@@ -270,8 +270,8 @@ body {
   transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 }
 .glass-item:hover {
-  background: rgba(155, 190, 59, 0.08);
-  border-color: rgba(155, 190, 59, 0.22);
+  background: rgba(171, 204, 55, 0.10);
+  border-color: rgba(171, 204, 55, 0.30);
 }
 
 /* Light dimensional card */
@@ -362,7 +362,7 @@ body {
   background-size: 46px 46px;
 }
 .bg-glow {
-  background: radial-gradient(circle at 50% 0%, rgba(155, 190, 59, 0.12) 0, transparent 55%);
+  background: radial-gradient(circle at 50% 0%, rgba(171, 204, 55, 0.14) 0, transparent 55%);
 }
 
 /* Subtle dimensional icon tile */

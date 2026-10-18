@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Newspaper } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { stories } from "../../mock";
 import Reveal from "../common/Reveal";
 import Placeholder from "../common/Placeholder";
@@ -33,7 +33,7 @@ export default function Stories() {
           {featured.map((s, i) => (
             <Reveal key={s.slug} delay={i * 90}>
               <Link to={`/stories/${s.slug}`} className="card-3d group block overflow-hidden">
-                <Placeholder icon={Newspaper} label={`${s.programme} story`} className="h-56 w-full" rounded="rounded-none" />
+                <Placeholder label={`${s.programme} story`} className="h-56 w-full" rounded="rounded-none" />
                 <div className="p-6">
                   <div className="flex items-center gap-3 text-xs uppercase tracking-widest text-lc-muted">
                     <span className="font-semibold text-lc-yellowDeep">{s.programme}</span>

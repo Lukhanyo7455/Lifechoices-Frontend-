@@ -1,21 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import {
-  Menu,
-  X,
-  ChevronDown,
-  ArrowRight,
-  ArrowUpRight,
-  Home,
-  HeartPulse,
-  Compass,
-  GraduationCap,
-  Briefcase,
-  ShieldCheck
-} from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight, ArrowUpRight } from "lucide-react";
 import { nav } from "../../mock";
 
-const iconMap = { Home, HeartPulse, Compass, GraduationCap, Briefcase, ShieldCheck };
 
 function Logo() {
   return (
@@ -104,7 +91,7 @@ export default function Header() {
             </Link>
             <Link
               to="/get-involved"
-              className="group inline-flex items-center gap-1.5 rounded-lg bg-lc-yellow px-4 py-2 text-[14px] font-semibold text-lc-ink shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_6px_16px_rgba(155,190,59,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-lc-yellowDeep hover:text-white"
+              className="group inline-flex items-center gap-1.5 rounded-lg bg-lc-yellow px-4 py-2 text-[14px] font-semibold text-lc-ink shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_6px_16px_rgba(171,204,55,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-lc-yellowDeep hover:text-white"
             >
               Donate
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -216,26 +203,15 @@ export default function Header() {
                 {hasMenu && (
                   <div className={`overflow-hidden transition-all duration-300 ${open ? "max-h-[640px]" : "max-h-0"}`}>
                     <div className="pb-4 pl-2">
-                      {item.items.map((sub) => {
-                        const Icon = iconMap[sub.icon] || Home;
-                        return (
-                          <Link
-                            key={sub.to + sub.label}
-                            to={sub.to}
-                            className="flex items-center gap-3 py-3 text-[15px] text-lc-ink/70"
-                          >
-                            {sub.icon && (
-                              <span
-                                className="flex h-8 w-8 items-center justify-center rounded-lg"
-                                style={{ backgroundColor: `${sub.color || "#9BBE3B"}1F`, color: sub.color || "#9BBE3B" }}
-                              >
-                                <Icon className="h-4 w-4" />
-                              </span>
-                            )}
-                            {sub.label}
-                          </Link>
-                        );
-                      })}
+                      {item.items.map((sub) => (
+                        <Link
+                          key={sub.to + sub.label}
+                          to={sub.to}
+                          className="block py-3 text-[15px] text-lc-ink/70 hover:text-lc-ink"
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
                     </div>
                   </div>
                 )}

@@ -1,12 +1,11 @@
 import React from "react";
-import { Heart, Handshake, Megaphone } from "lucide-react";
 import Button from "../common/Button";
 import Reveal from "../common/Reveal";
 
 const ways = [
-  { icon: Heart, title: "Donate", text: "Fund a young person\u2019s journey through our programmes.", to: "/get-involved" },
-  { icon: Handshake, title: "Partner", text: "Collaborate with us as a school, funder or corporate partner.", to: "/contact" },
-  { icon: Megaphone, title: "Advocate", text: "Amplify youth voices and champion change in your network.", to: "/contact" }
+  { title: "Donate", text: "Fund a young person\u2019s journey through our programmes.", to: "/get-involved" },
+  { title: "Partner", text: "Collaborate with us as a school, funder or corporate partner.", to: "/contact" },
+  { title: "Advocate", text: "Amplify youth voices and champion change in your network.", to: "/contact" }
 ];
 
 export default function CTA() {

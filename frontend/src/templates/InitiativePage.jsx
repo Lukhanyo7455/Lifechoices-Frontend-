@@ -1,6 +1,5 @@
 import React from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
-import * as Icons from "lucide-react";
 import { ArrowLeft } from "lucide-react";
 import Section from "../components/common/Section";
 import Reveal from "../components/common/Reveal";
@@ -13,7 +12,6 @@ export default function InitiativePage() {
   const { slug } = useParams();
   const p = getContent(slug);
   if (!p || p.template !== "initiative") return <Navigate to="/" replace />;
-  const Icon = Icons[p.icon] || Icons.Sparkles;
 
   return (
     <>
@@ -28,8 +26,8 @@ export default function InitiativePage() {
               </Link>
             </Reveal>
             <Reveal delay={80}>
-              <span className="mt-6 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold text-white shadow-lg" style={{ backgroundColor: `${p.color}F2` }}>
-                <Icon className="h-3.5 w-3.5" />{p.block}
+              <span className="mt-6 inline-flex items-center rounded-full px-3 py-1.5 text-xs font-semibold text-white shadow-lg" style={{ backgroundColor: `${p.color}F2` }}>
+                {p.block}
               </span>
             </Reveal>
             <Reveal delay={140}><h1 className="display mt-5 text-4xl md:text-6xl leading-[1.05] text-white">{p.title}</h1></Reveal>
@@ -43,7 +41,7 @@ export default function InitiativePage() {
           </div>
           <div className="lg:col-span-6">
             <Reveal delay={160} className="group">
-              <Placeholder dark icon={Icon} accent={p.color} label={`${p.title} imagery`} className="h-[380px] md:h-[460px] w-full" rounded="rounded-2xl" />
+              <Placeholder dark accent={p.color} label={`${p.title} imagery`} className="h-[380px] md:h-[460px] w-full" rounded="rounded-2xl" />
             </Reveal>
           </div>
         </div>

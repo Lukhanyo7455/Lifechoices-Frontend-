@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, useLocation, useParams, Navigate } from "
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import { Toaster } from "./components/ui/sonner";
+import Welcome from "./components/common/Welcome";
 import StandardPage from "./templates/StandardPage";
 import InitiativePage from "./templates/InitiativePage";
 import { getContent } from "./content/contentMap";
@@ -115,6 +116,7 @@ function App() {
   useCardTilt();
   return (
     <div className="App">
+      <Welcome />
       <BrowserRouter>
         <ScrollManager />
         <Header />

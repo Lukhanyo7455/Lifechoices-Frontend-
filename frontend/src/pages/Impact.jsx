@@ -1,5 +1,5 @@
 import React from "react";
-import { FileText, Download } from "lucide-react";
+import { Download } from "lucide-react";
 import PageHero from "../components/common/PageHero";
 import Section from "../components/common/Section";
 import Reveal from "../components/common/Reveal";
@@ -42,7 +42,7 @@ export default function Impact() {
           <Reveal delay={100}>
             <p className="text-lg text-white/70">
               We believe accountability matters. That’s why we measure participation, wellbeing and outcomes
-              across each programme — and share what we learn with the communities, schools and partners who
+              across each programme, and share what we learn with the communities, schools and partners who
               make our work possible.
             </p>
           </Reveal>
@@ -62,7 +62,6 @@ export default function Impact() {
             <Reveal key={p.slug} delay={i * 70}>
               <div className="card-3d p-6 md:flex md:items-center md:justify-between gap-6">
                 <div className="flex items-center gap-4">
-                  <span className="icon-tile flex h-12 w-12 items-center justify-center" style={{ backgroundColor: `${p.color}1F`, color: p.color }}><FileText className="h-6 w-6" /></span>
                   <div>
                     <h3 className="display text-xl text-lc-ink">{p.name}</h3>
                     <p className="text-sm text-lc-muted">Annual impact reports</p>

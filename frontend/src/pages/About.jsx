@@ -1,6 +1,4 @@
 import React from "react";
-import * as Icons from "lucide-react";
-import { Users, User } from "lucide-react";
 import PageHero from "../components/common/PageHero";
 import Section from "../components/common/Section";
 import Reveal from "../components/common/Reveal";
@@ -9,10 +7,10 @@ import Placeholder from "../components/common/Placeholder";
 import { org, buildingBlocks, team } from "../mock";
 
 const values = [
-  { icon: "ShieldCheck", title: "Safety & Dignity", text: "Every young person deserves to feel safe, seen and valued." },
-  { icon: "HeartHandshake", title: "Care First", text: "We build nurturing relationships that put wellbeing at the centre." },
-  { icon: "TrendingUp", title: "Real Outcomes", text: "We track our impact openly and report on it every year." },
-  { icon: "Users", title: "Community Rooted", text: "We work with schools, families and local organisations — not around them." }
+  { title: "Safety & Dignity", text: "Every young person deserves to feel safe, seen and valued." },
+  { title: "Care First", text: "We build nurturing relationships that put wellbeing at the centre." },
+  { title: "Real Outcomes", text: "We track our impact openly and report on it every year." },
+  { title: "Community Rooted", text: "We work with schools, families and local organisations, not around them." }
 ];
 
 export default function About() {
@@ -29,8 +27,7 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-6">
             <Reveal className="group relative">
-              <div className="absolute -left-4 -top-4 hidden sm:block h-32 w-32 bg-lc-yellow/90 rounded-2xl shadow-[0_20px_40px_rgba(155,190,59,0.25)]" />
-              <Placeholder label="Life Choices imagery" icon={Users} className="h-[440px] w-full" rounded="rounded-2xl" />
+              <Placeholder label="Life Choices imagery" className="h-[440px] w-full" rounded="rounded-2xl" />
             </Reveal>
           </div>
           <div className="lg:col-span-6">
@@ -80,14 +77,11 @@ export default function About() {
         </div>
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
           {buildingBlocks.map((b, i) => {
-            const Icon = Icons[b.icon] || Icons.Circle;
             return (
               <Reveal key={b.key} delay={i * 70}>
                 <div className="card-3d h-full p-6">
-                  <span className="icon-tile flex h-12 w-12 items-center justify-center" style={{ backgroundColor: `${b.color}1F`, color: b.color }}>
-                    <Icon className="h-6 w-6" />
-                  </span>
-                  <h3 className="display mt-5 text-lg text-lc-ink leading-tight">{b.title}</h3>
+                  <span className="display text-3xl font-bold text-lc-yellowDeep">{String(i + 1).padStart(2, "0")}</span>
+                  <h3 className="display mt-4 text-lg text-lc-ink leading-tight">{b.title}</h3>
                   <p className="mt-2 text-sm text-lc-muted">{b.text}</p>
                 </div>
               </Reveal>
@@ -132,7 +126,7 @@ export default function About() {
           {team.map((m, i) => (
             <Reveal key={i} delay={i * 80}>
               <div className="card-3d group overflow-hidden">
-                <Placeholder icon={User} label="Team portrait" className="h-64 w-full" rounded="rounded-none" />
+                <Placeholder label="Team portrait" className="h-64 w-full" rounded="rounded-none" />
                 <div className="p-5">
                   <h3 className="display text-lg text-lc-ink">{m.name}</h3>
                   <p className="text-sm text-lc-yellowDeep font-semibold">{m.role}</p>
