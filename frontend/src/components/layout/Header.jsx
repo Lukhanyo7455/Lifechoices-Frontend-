@@ -136,15 +136,8 @@ export default function Header() {
                         </p>
                         <div className="grid grid-cols-2 gap-2">
                           {item.items.map((sub) => {
-                            const Icon = iconMap[sub.icon] || Home;
                             return (
                               <Link key={sub.to} to={sub.to} className="glass-item group flex gap-3.5 rounded-xl p-3.5">
-                                <span
-                                  className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg"
-                                  style={{ backgroundColor: `${sub.color}1F`, color: sub.color }}
-                                >
-                                  <Icon className="h-5 w-5" />
-                                </span>
                                 <span>
                                   <span className="flex items-center gap-1 font-semibold text-lc-ink">
                                     {sub.label}
