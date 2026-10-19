@@ -19,14 +19,13 @@ export default function Interventions() {
       <Section tone="paper">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {programmes.map((p, i) => {
-            const Icon = Icons[p.icon] || Icons.Circle;
             return (
               <Reveal key={p.slug} delay={(i % 2) * 90}>
                 <Link to={`/interventions/${p.slug}`} className="card-3d group flex h-full flex-col overflow-hidden">
                   <div className="relative">
-                    <Placeholder icon={Icon} label={`${p.block} imagery`} accent={p.color} className="h-64 w-full" rounded="rounded-none" />
-                    <span className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold text-white shadow-lg" style={{ backgroundColor: `${p.color}F2` }}>
-                      <Icon className="h-3.5 w-3.5" />{p.block}
+                    <Placeholder label={`${p.block} imagery`} accent={p.color} className="h-64 w-full" rounded="rounded-none" />
+                    <span className="absolute left-5 top-5 inline-flex items-center rounded-full px-3 py-1.5 text-xs font-semibold text-white shadow-lg" style={{ backgroundColor: `${p.color}F2` }}>
+                      {p.block}
                     </span>
                     <span className="absolute left-5 bottom-5 rounded-full bg-lc-ink/80 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">{p.tag}</span>
                   </div>
@@ -45,9 +44,9 @@ export default function Interventions() {
           <Reveal delay={90}>
             <Link to="/safe-and-healthy-high-schools" className="card-3d group flex h-full flex-col overflow-hidden">
               <div className="relative">
-                <Placeholder icon={Icons.ShieldCheck} label="Schools imagery" accent="#159AA8" className="h-64 w-full" rounded="rounded-none" />
-                <span className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold text-white shadow-lg" style={{ backgroundColor: "#159AA8F2" }}>
-                  <Icons.ShieldCheck className="h-3.5 w-3.5" />Schools
+                <Placeholder label="Schools imagery" accent="#3C6B1A" className="h-64 w-full" rounded="rounded-none" />
+                <span className="absolute left-5 top-5 inline-flex items-center rounded-full px-3 py-1.5 text-xs font-semibold text-white shadow-lg" style={{ backgroundColor: "#3C6B1AF2" }}>
+                  Schools
                 </span>
                 <span className="absolute left-5 bottom-5 rounded-full bg-lc-ink/80 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">Whole-school</span>
               </div>

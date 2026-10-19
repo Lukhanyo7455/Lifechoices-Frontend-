@@ -1,17 +1,23 @@
 // Central WordPress REST API service.
-// All WordPress communication lives here — presentation components never call the API directly.
-// Public, read-only access only (no authentication at this stage).
-
+// All WordPress communication lives here, presentation components never call the API directly.
+// Public, read-only GET access only (no authentication, no secrets in the frontend).
+//
+// Site: imported Life Choices copy on WordPress.com (site ID 257668895).
+// WordPress.com free/business sites do not expose the self-hosted /wp-json/ route,
+// so we use the WordPress.com public REST proxy:
+//   https://public-api.wordpress.com/wp/v2/sites/<SITE_ID_OR_DOMAIN>
 const API_BASE = (
-  process.env.REACT_APP_WP_API_BASE || "https://lifechoices.co.za/wp-json/wp/v2"
+  process.env.REACT_APP_WP_API_BASE ||
+  "https://public-api.wordpress.com/wp/v2/sites/257668895"
 ).replace(/\/$/, "");
 
 const DEFAULT_TIMEOUT = 15000;
 
-// Simple in-memory GET cache (per session) so content isn't refetched repeatedly.
+// Per-session GET cache with a short TTL so content revalidates without a hard reload.
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
 const _cache = new Map();
 
-// Low-level fetch helper with query params, timeout, caching and clear error handling.
+// Low-level fetch helper with query params, timeout, TTL caching and clear error handling.
 async function wpFetch(path, { params = {}, timeout = DEFAULT_TIMEOUT, signal, cache = true } = {}) {
   const url = new URL(`${API_BASE}${path}`);
   Object.entries(params).forEach(([key, value]) => {
@@ -20,7 +26,11 @@ async function wpFetch(path, { params = {}, timeout = DEFAULT_TIMEOUT, signal, c
     }
   });
   const key = url.toString();
-  if (cache && _cache.has(key)) return _cache.get(key);
+  if (cache && _cache.has(key)) {
+    const cached = _cache.get(key);
+    if (Date.now() - cached.ts < CACHE_TTL) return cached.value;
+    _cache.delete(key);
+  }
 
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeout);
@@ -37,7 +47,7 @@ async function wpFetch(path, { params = {}, timeout = DEFAULT_TIMEOUT, signal, c
       total: Number(res.headers.get("X-WP-Total")) || null,
       totalPages: Number(res.headers.get("X-WP-TotalPages")) || null
     };
-    if (cache) _cache.set(key, result);
+    if (cache) _cache.set(key, { value: result, ts: Date.now() });
     return result;
   } catch (err) {
     if (err.name === "AbortError") {
@@ -112,6 +122,14 @@ export function stripHtml(htmlString = "") {
   const tmp = document.createElement("div");
   tmp.innerHTML = htmlString;
   return (tmp.textContent || tmp.innerText || "").replace(/\s+/g, " ").trim();
+}
+
+// Extract all <img> source URLs from rendered WordPress content.
+// On WordPress.com free sites the /media endpoint requires auth, but images
+// embedded inside post/page content are served publicly from /wp-content/uploads.
+export function imagesFromHtml(htmlString = "") {
+  const matches = [...htmlString.matchAll(/<img[^>]+src=["']([^"']+)["']/gi)];
+  return matches.map((m) => m[1]);
 }
 
 export const WP_API_BASE = API_BASE;
