@@ -128,8 +128,11 @@ export function stripHtml(htmlString = "") {
 // On WordPress.com free sites the /media endpoint requires auth, but images
 // embedded inside post/page content are served publicly from /wp-content/uploads.
 export function imagesFromHtml(htmlString = "") {
-  const matches = [...htmlString.matchAll(/<img[^>]+src=["']([^"']+)["']/gi)];
-  return matches.map((m) => m[1]);
-}
+  const matches = [
+    ...htmlString.matchAll(
+      /<img\b[^>]*?\bsrc=["']([^"']+)["']/gi
+    )
+  ];
 
-export const WP_API_BASE = API_BASE;
+  return matches.map((match) => match[1]);
+}
