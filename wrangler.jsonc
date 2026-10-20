@@ -1,0 +1,9 @@
+
+{
+  "name": "lifechoices-frontend",
+  "compatibility_date": "2026-10-20",
+  "assets": {
+    "directory": "./frontend/build",
+    "not_found_handling": "single-page-application"
+  }
+}
